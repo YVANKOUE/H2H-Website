@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -68,10 +69,16 @@ class User extends Authenticatable
     {
         $this->attributes['password'] =  Hash::make($value);
     }
-    
-    public function role()
+
+    // RELATIONSHIPS
+    public function orders()
     {
-        return $this->belongsToMany(Role::class, 'role_user');
+        return $this->hasMany(\App\Models\Orders\Order::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(\App\Models\Products\Review::class);
     }
     
 }
