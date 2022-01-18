@@ -1,8 +1,8 @@
+
+
 <?php $r = \Route::current()->getAction() ?>
 
 <?php $route = (isset($r['as'])) ? $r['as'] : ''; ?>
-
-
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
