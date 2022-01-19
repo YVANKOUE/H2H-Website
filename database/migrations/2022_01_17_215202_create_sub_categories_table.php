@@ -18,6 +18,8 @@ class CreateSubCategoriesTable extends Migration
             $table->foreignId('category_id')->constrained();
             $table->string('name');
             $table->string('slug');
+            $table->mediumText('description');
+            $table->string('image')->default('sub-category-default.png');
             $table->timestamps();
             $table->softDeletes();
         });

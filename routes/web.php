@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PermissionsController;
+use App\Http\Controllers\Admin\Products\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,9 @@ use App\Http\Controllers\Admin\PermissionsController;
             Route::resource('permissions', PermissionsController::class);
             //route des roles
             Route::resource('roles', RolesController::class);
+
+            // Categories
+            Route::resource('categories', CategoriesController::class)->except('create', 'show');
         });
     });
     Route::get('/home', [HomeController::class, 'index'])->name('home');

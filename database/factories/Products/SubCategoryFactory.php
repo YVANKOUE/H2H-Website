@@ -27,6 +27,7 @@ class SubCategoryFactory extends Factory
             'category_id' => $this->faker->numberBetween(1, 25),
             'name' => $name,
             'slug' => Str::slug($name),
+            'description' => $this->faker->sentence(16)
         ];
     }
 }

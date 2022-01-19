@@ -27,6 +27,16 @@ $("[data-checkboxes]").each(function () {
     }
   });
 });
+  
+  let locale = $('html').attr('lang');
+  let lang = null;
+  if (locale === 'en') {
+      lang = 'English';
+  }else if(locale === 'fr'){
+      lang = 'French';
+  }else{
+      lang = 'German';
+  }
 
 $("#table-1").dataTable({
   "columnDefs": [
@@ -48,5 +58,8 @@ $('#tableExport').DataTable({
   dom: 'Bfrtip',
   buttons: [
     'copy', 'csv', 'excel', 'pdf', 'print'
-  ]
+  ],
+  language: {
+    url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/" + lang + ".json"
+  }
 });

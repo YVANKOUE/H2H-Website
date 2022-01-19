@@ -11,7 +11,7 @@ class SubCategory extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'slug', 'category_id'];
+    protected $fillable = ['name', 'slug', 'category_id', 'description', 'image'];
 
     // 
     public function getRouteKeyName()
