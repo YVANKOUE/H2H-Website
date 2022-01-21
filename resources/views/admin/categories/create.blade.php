@@ -42,8 +42,8 @@
                                     <div class="col-xl-9">
                                         <!--begin::Group-->
                                         <div class="form-group row">
-                                            <label class="col-xl-3 col-lg-3 col-form-label text-left">Image</label>
-                                            <div class="col-lg-9 col-xl-9">
+                                            <label class="col-sm-3 col-form-label">Image</label>
+                                            <div class="col-lg-9 col-xl-9 col-sm-9">
                                                 <div class="image-input image-input-outline" id="kt_user_add_avatar">
                                                     <div class="image-input-wrapper" style="background-image: url({{asset('assets/img/banner/1.png')}}"></div>
                                                     <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change image">
@@ -65,7 +65,7 @@
                                         <!--begin::Name-->
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-3 col-form-label">@lang('Name')</label>
-                                            <div class="col-lg-9 col-xl-9 col-sm-9">
+                                            <div class="col-lg-9 col-xl-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <input type="text" class="form-control form-control-solid @error('name') 
                                                         is-invalid @enderror" name="name" id="name" value="{{ old('name') }}"/>

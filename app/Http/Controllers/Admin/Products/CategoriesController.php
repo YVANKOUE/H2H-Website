@@ -51,17 +51,6 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Products\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Products\Category  $category
@@ -69,7 +58,7 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -81,7 +70,16 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|unique:categories,name',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $category->update($request->all());
+
+        // Alert::toast()
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -92,6 +90,7 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.categories.index');
     }
 }
