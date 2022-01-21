@@ -26,6 +26,13 @@ class SubCategory extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
+    public function setImageAttribute($image)
+    {
+        $imageName = $this->attributes['slug'] . '.' . $image->getClientOriginalExtension();
+        $image->storeAs('public/sub-categories/images', $imageName);
+        $this->attributes['image'] = $imageName;
+    }
+
     // RELATIONSHIPS
     public function category()
     {

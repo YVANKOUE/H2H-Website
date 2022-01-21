@@ -48,6 +48,11 @@
                 <li><a href="{{ route('admin.roles.create') }}">@lang('Add')</a></li>
               </ul>
           </li>
+
+          <li class="menu-header">@lang('Products management')</li>
+          <li class="dropdown @if(Str::startsWith($route, 'admin.sub-categories'))active @endif">
+            <a href="{{ route('admin.sub-categories.index') }}" class="nav-link"><i data-feather="folder"></i><span>@lang('Sub-categories')</span></a>
+          </li>
         @endcan
 
       </ul>
