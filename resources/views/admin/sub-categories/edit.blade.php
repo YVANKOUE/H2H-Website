@@ -102,7 +102,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-xl-4 col-xxl-5 rounded">
+                    <div class="col-xl-4 col-xxl-5">
                         <img src="{{ $subCategory->image }}" alt="">
                     </div>
                 </div>

@@ -57,22 +57,22 @@
                                         <!--end::Name-->
 
                                         <!--begin::Category-->
-                                        <div class="form-group row">
+                                        {{-- <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">@lang('Category')</label>
                                             <div class="col-lg-9 col-xl-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <select class="form-control @error('category') is-invalid @enderror" name="category" id="category">
                                                         <option disabled selected>@lang('Select a category')</option>
-                                                        {{-- @foreach ($categories as $category)
+                                                        @foreach ($categories as $category)
                                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                                        @endforeach --}}
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                                 @error('category')
                                                     <span class="form-text text-muted" role="alert"><strong class="text-danger category">{{ $message }}</strong></span>
                                                 @enderror
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <!--end::Category-->
 
                                         <!--begin::Sub category-->
@@ -80,9 +80,11 @@
                                             <label class="col-sm-3 col-form-label">@lang('Sub category')</label>
                                             <div class="col-lg-9 col-xl-9">
                                                 <div class="input-group input-group-solid input-group-lg">
-                                                    <select class="form-control @error('sub_category') is-invalid @enderror" name="sub_category" id="sub_category">
+                                                    <select class="form-control select2 @error('sub_category') is-invalid @enderror" name="sub_category" id="sub_category">
                                                         <option disabled selected>@lang('Select a sub category')</option>
-                                                        
+                                                        @foreach ($subCategories as $subCategory)
+                                                            <option value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                                 @error('sub_category')
@@ -174,9 +176,9 @@
                                             <div class="col-lg-9 col-xl-9 col-sm-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <select multiple="multiple" class="form-control select2" name="colors[]" id="colors" required>
-                                                        {{-- @foreach($colors as $color)
+                                                        @foreach($colors as $color)
                                                             <option value="{{ $color->id }}">{{ $color->name }}</option>
-                                                        @endforeach --}}
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>

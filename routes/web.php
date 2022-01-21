@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\{RolesController, UsersController, ProfileController, PermissionsController};
-use App\Http\Controllers\Admin\Products\{CategoriesController, SubCategoriesController};
+use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsController, SubCategoriesController};
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +47,8 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, SubCategoriesCont
             Route::resource('categories', CategoriesController::class)->except('show');
             // SubCategories
             Route::resource('sub-categories', SubCategoriesController::class)->except('create', 'show');
+            // Products
+            Route::resource('products', ProductsController::class);
         });
     });
     Route::get('/home', [HomeController::class, 'index'])->name('home');
