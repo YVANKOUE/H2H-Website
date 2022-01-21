@@ -45,10 +45,10 @@
                         <label class="col-sm-2 col-form-label">@lang('Category')<sup class="text-danger">*</sup></label>
                         <div class="col-lg-10 col-xl-10 col-sm-10">
                             <div class="input-group input-group-solid input-group-lg">
-                                <select class="form-control @error('category_id') is-invalid @enderror" name="category_id">
-                                    <option {{ old('category_id') ? 'selected' : '' }}>@lang('Select category')</option>
+                                <select class="form-control form-control-solid @error('category_id') is-invalid @enderror" name="category_id">
+                                    <option selected disabled>@lang('Select category')</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}" {{ old('category_id') ? 'selected' : '' }}>{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

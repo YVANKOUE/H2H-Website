@@ -68,10 +68,10 @@
                                 <label class="col-sm-2 col-form-label">@lang('Category')<sup class="text-danger">*</sup></label>
                                 <div class="col-lg-10 col-xl-10 col-sm-10">
                                     <div class="input-group input-group-solid input-group-lg">
-                                        <select class="form-control @error('category_id') is-invalid @enderror" name="category_id">
+                                        <select class="form-control select2 @error('category_id') is-invalid @enderror" name="category_id">
                                             {{-- <option disabled selected>@lang('Select a category')</option> --}}
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option value="{{ $category->id }}" {{ old('category_id') || ($subCategory->category->id === $category->id) ?? 'selected' }}>{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
