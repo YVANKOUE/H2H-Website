@@ -16,6 +16,7 @@
 
         <!-- General CSS Files -->
         <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/bundles/dropzonejs/dropzone.css')}}">
         <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/datatables.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
 
@@ -57,6 +58,7 @@
         <script src="{{ asset('assets/bundles/datatables/datatables.min.js') }}"></script>
         <script src="{{ asset('assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script>
         <script src="{{ asset('assets/bundles/jquery-ui/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('assets/bundles/dropzonejs/min/dropzone.min.js')}}"></script>
 
         <!-- Page Specific JS File -->
         <script src="{{ asset('assets/js/page/index.js') }}"></script>
@@ -67,6 +69,7 @@
         <script src="{{ asset('assets/bundles/datatables/export-tables/pdfmake.min.js') }}"></script> 
         <script src="{{ asset('assets/bundles/datatables/export-tables/vfs_fonts.js') }}"></script> 
         <script src="{{ asset('assets/bundles/datatables/export-tables/buttons.print.min.js') }}"></script>
+        <script src="{{ asset('assets/js/page/multiple-upload.js')}}"></script>
 
         <!-- Template JS File -->
         <script src="{{ asset('assets/js/scripts.js') }}"></script>

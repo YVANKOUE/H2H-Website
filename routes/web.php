@@ -47,7 +47,7 @@ use App\Http\Controllers\Admin\Products\CategoriesController;
             Route::resource('roles', RolesController::class);
 
             // Categories
-            Route::resource('categories', CategoriesController::class)->except('create', 'show');
+            Route::resource('categories', CategoriesController::class)->except('show');
         });
     });
     Route::get('/home', [HomeController::class, 'index'])->name('home');
