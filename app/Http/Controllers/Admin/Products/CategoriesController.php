@@ -21,6 +21,16 @@ class CategoriesController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.categories.create');
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -28,9 +38,12 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['name' => 'required|string|unique:categories,name']);
+        $this->validate($request, [
+            'name' => 'required|string|unique:categories,name',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
 
-        Category::create($request->name);
+        Category::create($request->all());
 
         // Alert::toast()
 
@@ -38,12 +51,23 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Products\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function show(Category $category)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Products\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Category $category)
     {
         //
     }
@@ -52,10 +76,10 @@ class CategoriesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Products\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -63,10 +87,10 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Products\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
         //
     }
