@@ -18,6 +18,12 @@ class SubCategory extends Model
     {
         return 'slug';
     }
+
+    // Accessors
+    public function getImageAttribute($image)
+    {
+        return asset(root_path() . '/sub-categories/images/' . $image);
+    }
     
     // Mutators
     public function setNameAttribute($value)

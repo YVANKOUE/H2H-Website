@@ -31,7 +31,7 @@
             <!--begin::Body-->
             <div class="card-body p-0">
                 <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
-                    <div class="col-xl-12 col-xxl-10">
+                    <div class="col-xl-8 col-xxl-7">
                         <form action="{{ route('admin.sub-categories.update', $subCategory->slug) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
@@ -101,6 +101,9 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
                             </div>
                         </form>
+                    </div>
+                    <div class="col-xl-4 col-xxl-5 rounded">
+                        <img src="{{ $subCategory->image }}" alt="">
                     </div>
                 </div>
             </div>

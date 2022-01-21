@@ -35,13 +35,12 @@ class SubCategoriesController extends Controller
             'name' => 'required|string|unique:sub_categories,name|max:35',
             'category_id' => 'required|integer|exists:categories,id',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:png,jpg,jpeg,gif,svg'
+            'image' => 'sometimes|image|mimes:png,jpg,jpeg,gif,svg'
         ]);
         
         SubCategory::create($request->except('_token', '_method'));
 
         Alert::toast(trans('Sub-category has been successfully added.'), 'success');
-
         return back();
     }
 
@@ -72,7 +71,7 @@ class SubCategoriesController extends Controller
             'name' => "required|string|unique:sub_categories,name,$subCategory->id|max:35",
             'category_id' => 'required|integer|exists:categories,id',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:png,jpg,jpeg,gif,svg'
+            'image' => 'sometimes|image|mimes:png,jpg,jpeg,gif,svg'
         ]);
 
         $subCategory->update($request->except('_token', '_method'));

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Products;
 
-use App\Http\Controllers\Controller;
-use App\Models\Products\Category;
 use Illuminate\Http\Request;
+use App\Models\Products\Category;
+use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoriesController extends Controller
 {
@@ -45,9 +46,9 @@ class CategoriesController extends Controller
 
         Category::create($request->all());
 
-        // Alert::toast()
+        Alert::toast(trans('Category has been successfully added.'), 'success');
 
-        return redirect()->back();
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -71,13 +72,13 @@ class CategoriesController extends Controller
     public function update(Request $request, Category $category)
     {
         $this->validate($request, [
-            'name' => 'required|string|unique:categories,name',
+            'name' => 'required|string|unique:categories,name,'. $category->id,
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $category->update($request->all());
 
-        // Alert::toast()
+        Alert::toast(trans('Category has been successfully updated.'), 'success');
 
         return redirect()->route('admin.categories.index');
     }
@@ -91,6 +92,7 @@ class CategoriesController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('admin.categories.index');
+        Alert::toast(trans('Sub-category has been successfully removed.'), 'success');
+        return back();
     }
 }
