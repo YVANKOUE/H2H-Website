@@ -9,8 +9,8 @@
 
     <!--begin::Group-->
     <div class="form-group row">
-        <label class="col-xl-3 col-lg-3 col-form-label text-left">Avatar</label>
-        <div class="col-lg-9 col-xl-9">
+        <label class="col-sm-3 col-form-label">Avatar</label>
+        <div class="col-lg-9 col-xl-9 col-sm-9">
             <div class="image-input image-input-outline" id="kt_user_add_avatar">
                 <div class="image-input-wrapper" style="background-image: url(@if ($route == 'admin.users.create') {{asset('assets/img/banner/1.png')}} @else {{$user->avatar}}) @endif"></div>
                 <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
@@ -36,7 +36,7 @@
     <!--begin::Group-->
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">@lang('Name')</label>
-        <div class="col-lg-9 col-xl-9 col-sm-9">
+        <div class="col-lg-9 col-xl-9">
             <div class="input-group input-group-solid input-group-lg">
                 <input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" id="name" value="@if($route == 'admin.users.create'){{old('name')}}@else{{$user->name}}@endif"/>
             </div>
@@ -51,7 +51,7 @@
     <!--begin::Group-->
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">@lang('First Name')</label>
-        <div class="col-lg-9 col-xl-9 col-sm-9">
+        <div class="col-lg-9 col-xl-9">
             <div class="input-group input-group-solid input-group-lg">
                 <input type="text" class="form-control form-control-solid @error('last_name') is-invalid @enderror" name="last_name" id="last_name" value="@if($route == 'admin.users.create'){{old('last_name')}}@else{{$user->last_name}}@endif"/>
             </div>

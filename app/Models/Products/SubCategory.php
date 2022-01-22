@@ -18,12 +18,25 @@ class SubCategory extends Model
     {
         return 'slug';
     }
+
+    // Accessors
+    public function getImageAttribute($image)
+    {
+        return asset(root_path() . '/sub-categories/images/' . $image);
+    }
     
     // Mutators
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);
+    }
+
+    public function setImageAttribute($image)
+    {
+        $imageName = $this->attributes['slug'] . '.' . $image->getClientOriginalExtension();
+        $image->storeAs('public/sub-categories/images', $imageName);
+        $this->attributes['image'] = $imageName;
     }
 
     // RELATIONSHIPS
