@@ -15,8 +15,7 @@ class CreateSizesTable extends Migration
     {
         Schema::create('sizes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained();
-            $table->double('size');
+            $table->string('size');
             $table->timestamps();
         });
     }

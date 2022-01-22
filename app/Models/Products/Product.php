@@ -44,7 +44,7 @@ class Product extends Model
 
     public function colors()
     {
-        return $this->hasMany(Color::class);
+        return $this->belongsToMany(Color::class);
     }
 
     public function images()
@@ -54,7 +54,7 @@ class Product extends Model
 
     public function sizes()
     {
-        return $this->hasMany(Size::class);
+        return $this->belongsToMany(Size::class);
     }
 
     public function offers()
