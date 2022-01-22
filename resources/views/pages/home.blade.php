@@ -13,11 +13,11 @@
         <div class="bg-no-repeat bg-cover bg-right-center px-8" style="background-image: url({{asset('front/img/1600x900.jpg')}});">
             <div class="container">
                 <div class="row min-vh-100 align-items-center py-12">
-                    <div class="col-lg-8 col-xl-6 pt-8 pt-lg-12">
-                        <h6 class="fw-500 text-white mb-4">You're Looking Good</h6>
-                        <h1 class="display-2 fw-600 text-white">Final Clearance Up to 80% Off</h1>
+                    <div class="col-lg-8 col-xl-8 pt-8 pt-lg-12">
+                        <h6 class="fw-500 text-white mb-4">hand2hand.live</h6>
+                        <h2 class="fw-600 text-white">@lang('Hundreds of popular items and featured suppliers. Be satisfied or your money back.')</h2>
                         <div class="pt-5">
-                            <a class="btn btn-outline-white" href="#">Discover More</a>
+                            <a class="btn btn-outline-white" href="#">@lang('Discover More')</a>
                         </div>
                     </div>
                 </div>
@@ -27,10 +27,10 @@
             <div class="container">
                 <div class="row min-vh-100 align-items-center py-12">
                     <div class="col-lg-8 col-xl-6 pt-8 pt-lg-12">
-                        <h6 class="fw-500 text-white mb-4">You're Looking Good</h6>
-                        <h1 class="display-2 fw-600 text-white">Final Clearance Up to 80% Off</h1>
+                        <h6 class="fw-500 text-white mb-4">@lang('New items and trends')</h6>
+                        <h1 class="display fw-600 text-white">@lang('Available 24/7 to discover popular items. Essential tools and accessories.')</h1>
                         <div class="pt-5">
-                            <a class="btn btn-outline-white" href="#">Discover More</a>
+                            <a class="btn btn-outline-white" href="#">@lang('Discover More')</a>
                         </div>
                     </div>
                 </div>
@@ -892,75 +892,7 @@
     </section>
     <!-- End Product section -->
     <!-- blog -->
-    <section class="section bg-gray-100">
-        <div class="container">
-            <div class="row justify-content-center mb-4">
-                <div class="col-lg-6 text-center">
-                    <h3 class="h2 mb-2">New Blog Posts</h3>
-                    <p class="fs-6 m-0">Read Today’s News.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 my-3">
-                    <div class="hover-scale text-center">
-                        <div class="hover-scale-in position-relative">
-                            <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
-                            </a>
-                            <div class="position-absolute top-0 start-0 mt-3 ms-3 bg-white d-flex flex-column align-items-center px-3 py-2">
-                                <span class="h4 m-0">25</span>
-                                <small>MAR</small>
-                            </div>
-                        </div>
-                        <div class="px-3 py-4 mx-3 mx-lg-5 bg-white mt-n6 position-relative">
-                            <h5>
-                                <a class="text-reset" href="#">Make your Marketing website</a>
-                            </h5>
-                            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 my-3">
-                    <div class="hover-scale text-center">
-                        <div class="hover-scale-in position-relative">
-                            <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
-                            </a>
-                            <div class="position-absolute top-0 start-0 mt-3 ms-3 bg-white d-flex flex-column align-items-center px-3 py-2">
-                                <span class="h4 m-0">25</span>
-                                <small>MAR</small>
-                            </div>
-                        </div>
-                        <div class="px-3 py-4 mx-3 mx-lg-5 bg-white mt-n6 position-relative">
-                            <h5>
-                                <a class="text-reset" href="#">Make your Marketing website</a>
-                            </h5>
-                            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 my-3">
-                    <div class="hover-scale text-center">
-                        <div class="hover-scale-in position-relative">
-                            <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
-                            </a>
-                            <div class="position-absolute top-0 start-0 mt-3 ms-3 bg-white d-flex flex-column align-items-center px-3 py-2">
-                                <span class="h4 m-0">25</span>
-                                <small>MAR</small>
-                            </div>
-                        </div>
-                        <div class="px-3 py-4 mx-3 mx-lg-5 bg-white mt-n6 position-relative">
-                            <h5>
-                                <a class="text-reset" href="#">Make your Marketing website</a>
-                            </h5>
-                            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  
     <!-- End blog -->
 </main>
 @endsection
