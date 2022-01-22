@@ -98,7 +98,6 @@
         
                             <div class="modal-footer bg-whitesmoke br">
                                 <button type="submit" class="btn btn-primary">@lang('Submit')</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
                             </div>
                         </form>
                     </div>

@@ -45,7 +45,7 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
             Route::resource('roles', RolesController::class);
 
             // Categories
-            Route::resource('categories', CategoriesController::class)->except('show');
+            Route::resource('categories', CategoriesController::class)->except('create', 'show');
             // SubCategories
             Route::resource('sub-categories', SubCategoriesController::class)->except('create', 'show');
             // Products
