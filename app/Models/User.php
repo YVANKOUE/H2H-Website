@@ -58,7 +58,7 @@ class User extends Authenticatable
 
     public function setAvatarAttribute($photo)
     {
-        $toStore = $this->attributes['name'] . time() . '.' .$photo->getClientOriginalExtension();
+        $toStore = $this->attributes['name'] . '.' .$photo->getClientOriginalExtension();
         // $photo->storeAs('public/users/images', $toStore);
         $photo->move(public_path("users/images"), $toStore);
         $this->attributes['avatar'] = $toStore;
