@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="{{ asset('assets/bundles/bootstrap-social/bootstrap-social.css') }}">
 
         @yield('Page Vendors Styles')
+        @livewireStyles
     </head>
     <body>
         <div class="loader"></div>
@@ -83,5 +84,6 @@
         <script src="{{ asset('assets/bundles/select2/dist/js/select2.full.min.js') }}"></script>
 
         @yield('Page Scripts')
+        @livewireScripts
     </body>
 </html>
