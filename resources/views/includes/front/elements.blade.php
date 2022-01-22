@@ -1,3 +1,6 @@
+<?php $r = \Route::current()->getAction() ?>
+
+<?php $route = (isset($r['as'])) ? $r['as'] : ''; ?>
   <!-- Skippy -->
   <a id="skippy" class="visually-hidden visually-hidden-focusable u-skippy" href="#content">
     <div class="container">
@@ -143,7 +146,7 @@
                             <div class="col-4">
                                 <!-- Image -->
                                 <a href="#">
-                                    <img class="img-fluid border" src=" {{asset('front/img/1000x1000.jpg')}} " alt="...">
+                                    <img class="img-fluid border" src=" {{asset('front/img/product.jpg')}} " alt="...">
                                 </a>
                             </div>
                             <div class="col-8">
@@ -173,7 +176,7 @@
                             <div class="col-4">
                                 <!-- Image -->
                                 <a href="#">
-                                    <img class="img-fluid border" src=" {{asset('front/img/1000x1000.jpg')}} " alt="...">
+                                    <img class="img-fluid border" src=" {{asset('front/img/product.jpg')}} " alt="...">
                                 </a>
                             </div>
                             <div class="col-8">
@@ -245,7 +248,7 @@
                 <div class="row">
                     <!-- Product Gallery -->
                     <div class="col-lg-6 lightbox-gallery product-gallery">
-                        <img src=" {{asset('front/img/1000x1000.jpg')}} " class="img-fluid" title="" alt="">
+                        <img src=" {{asset('front/img/product.jpg')}} " class="img-fluid" title="" alt="">
                     </div>
                     <!-- End Product Gallery -->
                     <!-- Product Details -->
