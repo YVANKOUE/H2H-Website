@@ -1,0 +1,44 @@
+/*Top spacing for mobile menu 
+-----------------------------------*/
+@include media-breakpoint-down(xxl) {
+    .navbar-expand-xxl {
+        @include mobile_menu;
+    }
+}
+
+@include media-breakpoint-down(xl) {
+    .navbar-expand-xl {
+        @include mobile_menu;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .navbar-expand-lg {
+        @include mobile_menu;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .navbar-expand-md {
+        @include mobile_menu;
+    }
+
+    .navbar-brand {
+        img {
+            max-width: 150px;
+            height: auto;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .navbar-expand-sm {
+        @include mobile_menu;
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .navbar-expand-sm {
+        @include mobile_menu;
+    }
+}

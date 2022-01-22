@@ -9,6 +9,9 @@ class HomeController extends Controller
     public function test(){
         return view('test');
     }
+    public function index(){
+        return view('pages.home');
+    }
 
     public function lang($locale){
         App::setlocale($locale);

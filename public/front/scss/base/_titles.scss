@@ -1,0 +1,25 @@
+.sm-title-01 {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 40px;
+	padding-right: 40px;
+	&:before,
+	&:after {
+		content:"";
+		position: absolute;
+		bottom: 0;
+		top: 0;
+		margin: auto;
+		height: 3px;
+		width: 30px;
+		border-radius: 3px;
+		background: $primary;
+	}
+	&:before {
+		left: 0;
+	}
+	&:after {
+		right: 0;
+	}
+}
