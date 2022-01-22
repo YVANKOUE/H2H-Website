@@ -1,0 +1,32 @@
+.link-style-1 {
+	a {
+		color: $dark;
+	    font-size: 0.85rem;
+	    padding-top: 0.15rem;
+	    padding-bottom: 0.15rem;
+	    padding-left: 1rem;
+	    position: relative;
+	    display: block;
+		&:after {
+			content: "";
+		    position: absolute;
+		    top: 11px;
+		    left: 0;
+		    width: 5px;
+		    height: 5px;
+		    border-radius: 50%;
+		    background: currentColor;
+		    opacity: .6;
+		}
+	}
+	li {
+		&:hover {
+			a {
+				color: $primary;
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,6 @@
+.footer-border-top {
+	border-top: 1px solid rgba($black, 0.2);
+	&.light {
+		border-top: 1px solid rgba($white, 0.1);
+	}
+}
