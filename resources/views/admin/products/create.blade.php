@@ -191,9 +191,9 @@
                                             <div class="col-lg-9 col-xl-9 col-sm-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <select multiple="multiple" class="form-control select2" name="sizes[]" id="sizes" required>
-                                                        {{-- @foreach($sizes as $size)
-                                                            <option value="{{ $size->id }}">{{ $size->name }}</option>
-                                                        @endforeach --}}
+                                                        @foreach($sizes as $size)
+                                                            <option value="{{ $size->id }}">{{ $size->size }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -221,66 +221,75 @@
                                 </div>
                             </form>
                             <!--end::Wizard Form-->
-
                         </div>
                         
                         <!-- formulaire de couleur et taille -->
                         <div class="col-xl-5 col-xxl-3">
-                            <!--begin::Wizard Form2-->
-                            <form class="form" method="POST" action="" enctype="multipart/form-data">
-                                @csrf
-                                <div class="row justify-content-center">
-                                    <div class="col-xl-12">
-                                        <h6>@lang('Add color')</h6>
-                                        <div class="card-footer border mb-3 font-weight-bolder">
-                                            <!--begin::Color-->
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">@lang('Code color')</label>
-                                                <div class="col-lg-9 col-xl-9 col-sm-9">
-                                                    <div class="input-group input-group-solid input-group-lg">
-                                                        <input type="color" class="form-control form-control-solid @error('color') 
-                                                            is-invalid @enderror" name="color" id="color" value="{{ old('color') }}"/>
-                                                    </div> 
-                                                    @error('color')
-                                                        <span class="form-text text-muted" role="alert"><strong class="text-danger color">{{ $message }}</strong></span>
-                                                    @enderror
+                            
+                            {{-- <div class="card-body">
+                                <p class="buttons">
+                                    <a class="btn btn-primary" data-toggle="collapse" href="#colorsCollapse" role="button" aria-expanded="false" aria-controls="colorsCollapse">@lang('Colors')</a>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#sizesCollapse" aria-expanded="false" aria-controls="sizesCollapse">@lang('Sizes')</button>
+                                </p>
+                                <div class="collapse multi-collapse" id="colorsCollapse">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row card-title">
+                                                <h5 class="col-md-6"></h5>
+                                                <!-- Button trigger modal -->
+                                                <div class="col-md-6 text-right">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicColorsModal">@lang('All colors')</button>
                                                 </div>
                                             </div>
-                                            <!--end::Color-->
-                                            <!--begin::Wizard Actions-->
-                                            <div class="text-right">
-                                                <button class="btn btn-primary">@lang('Save')</button>
-                                            </div>
-                                            <!--end::Wizard Actions-->
-                                        </div>
-
-                                        <h6>@lang('Add size')</h6>
-                                        <div class="card-footer border font-weight-bolder">
-                                            <!--begin::Size-->
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">@lang('Size')</label>
-                                                <div class="col-lg-9 col-xl-9 col-sm-9">
-                                                    <div class="input-group input-group-solid">
-                                                        <input type="text" class="form-control form-control-solid @error('size') 
-                                                            is-invalid @enderror" name="size" id="size" value="{{ old('size') }}"/>
-                                                    </div> 
-                                                    @error('size')
-                                                        <span class="form-text text-muted" role="alert"><strong class="text-danger size">{{ $message }}</strong></span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <!--end::Size-->
-                                            
-                                            <!--begin::Wizard Actions-->
-                                            <div class="text-right">
-                                                <button class="btn btn-primary">@lang('Save')</button>
-                                            </div>
-                                            <!--end::Wizard Actions-->
+        
+                                            @livewire('products.create-color')
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                            <!--end::Wizard Form2-->
+                                <div class="collapse multi-collapse" id="sizesCollapse">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row card-title">
+                                                <h5 class="col-md-6"></h5>
+                                                <!-- Button trigger modal -->
+                                                <div class="col-md-6 text-right">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicSizesModal">@lang('All sizes')</button>
+                                                </div>
+                                            </div>
+        
+                                            @livewire('products.create-size')
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                         --}}
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row card-title">
+                                        <h5 class="col-md-6"></h5>
+                                        <!-- Button trigger modal -->
+                                        <div class="col-md-6 text-right">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicColorsModal">@lang('All colors')</button>
+                                        </div>
+                                    </div>
+
+                                    @livewire('products.create-color')
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row card-title">
+                                        <h5 class="col-md-6"></h5>
+                                        <!-- Button trigger modal -->
+                                        <div class="col-md-6 text-right">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicSizesModal">@lang('All sizes')</button>
+                                        </div>
+                                    </div>
+
+                                    @livewire('products.create-size')
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -289,4 +298,11 @@
         </div>
     </div>
 
+    
+                                    
+    {{-- COLORS MODAL --}}
+    @include('admin.products.modals.colors')
+
+    {{-- SIZES MODAL --}}
+    @include('admin.products.modals.sizes')
 @endsection
