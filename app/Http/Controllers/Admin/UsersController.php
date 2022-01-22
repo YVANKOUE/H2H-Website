@@ -44,23 +44,13 @@ class UsersController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
+        dd($request);
         $user = User::create($request->all());
         
         $roles = $request->input('roles') ? $request->input('roles') : [];        
         $user->assignRole($roles);
 
         return redirect()->route('admin.users.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

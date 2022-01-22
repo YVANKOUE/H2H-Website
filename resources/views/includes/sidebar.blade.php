@@ -50,21 +50,17 @@
           </li>
 
           <li class="menu-header">@lang('Products management')</li>
-          {{-- lien des categories --}}
+          
+          <!-- lien des catégories -->
           <li class="dropdown @if(Str::startsWith($route, 'admin.categories'))active @endif">
-            <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                data-feather="list"></i><span>@lang('Categories')</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="{{ route('admin.categories.index') }}">@lang('List')</a></li>
-              <li><a href="{{ route('admin.categories.create') }}">@lang('Add')</a></li>
-            </ul>
+            <a href="{{ route('admin.categories.index') }}" class="nav-link"><i data-feather="folder"></i><span>@lang('Categories')</span></a>
           </li>
 
           <li class="dropdown @if(Str::startsWith($route, 'admin.sub-categories'))active @endif">
             <a href="{{ route('admin.sub-categories.index') }}" class="nav-link"><i data-feather="folder"></i><span>@lang('Sub-categories')</span></a>
           </li>
 
-          <li class="dropdown @if(Str::startsWith($route, 'admin.categories'))active @endif">
+          <li class="dropdown @if(Str::startsWith($route, 'admin.products'))active @endif">
             <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="list"></i><span>@lang('Products')</span></a>
             <ul class="dropdown-menu">
               <li><a href="{{ route('admin.products.index') }}">@lang('List')</a></li>

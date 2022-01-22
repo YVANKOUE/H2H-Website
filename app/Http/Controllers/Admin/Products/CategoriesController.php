@@ -22,16 +22,6 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('admin.categories.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -41,6 +31,7 @@ class CategoriesController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|unique:categories,name',
+            'description' => 'required|string',
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
@@ -73,6 +64,7 @@ class CategoriesController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|unique:categories,name,'. $category->id,
+            'description' => 'required|string',
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
