@@ -1,6 +1,12 @@
+<?php $r = \Route::current()->getAction() ?>
+<?php $route = (isset($r['as'])) ? $r['as'] : ''; ?>
+@if($route == 'home') <div></div>
+@else<div class="header-height-bar" style="min-height: 115.125px !important;"></div>@endif
+
+
 <header class="header-main header-dark fixed-top header-fluid header-transparent">
         <!-- Top Header -->
-        <div class="header-top header-border-bottom small">
+        <div class="header-top header-border-bottom small @if($route == 'home') rien @else bg-black @endif ">
             <div class="container-fluid">
                 <div class="d-flex justify-content-between align-items-center">
                     <!-- Left -->
@@ -68,7 +74,11 @@
             </div>
         </div>
         <!-- End Top Header -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg  @if ($route === 'home')
+            navbar-dark
+        @else
+        navbar-light
+        @endif">
             <div class="container-fluid">
                 <!-- Logo -->
                 <a class="navbar-brand" href=" {{route('home')}} ">
@@ -87,7 +97,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">@lang('Shop')</a>
+                            <a href=" {{route('shop')}} " class="nav-link">@lang('Shop')</a>
                         </li>
 
                         <li class="dropdown dropdown-full nav-item">
@@ -100,7 +110,7 @@
                                             <div class="hover-scale position-relative mb-3">
                                                 <div class="hover-scale-in">
                                                     <a href="#">
-                                                        <img src="{{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
@@ -121,7 +131,7 @@
                                             <div class="hover-scale position-relative mb-3">
                                                 <div class="hover-scale-in">
                                                     <a href="#">
-                                                        <img src="{{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
@@ -142,7 +152,7 @@
                                             <div class="hover-scale position-relative mb-3">
                                                 <div class="hover-scale-in">
                                                     <a href="#">
-                                                        <img src="{{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
@@ -163,7 +173,7 @@
                                             <div class="hover-scale position-relative mb-3">
                                                 <div class="hover-scale-in">
                                                     <a href="#">
-                                                        <img src="{{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
@@ -184,7 +194,7 @@
                                             <div class="hover-scale position-relative mb-3">
                                                 <div class="hover-scale-in">
                                                     <a href="#">
-                                                        <img src="{{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
@@ -205,7 +215,7 @@
                                             <div class="hover-scale position-relative mb-3">
                                                 <div class="hover-scale-in">
                                                     <a href="#">
-                                                        <img src="{{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
@@ -223,7 +233,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-12">
-                                            <div class="d-flex rounded w-100 align-items-center justify-content-center mx-2 py-4 position-relative bg-cover bg-center bg-no-repeat" style="background-image: url({{asset('front/img/1000x1000.jpg')}} );">
+                                            <div class="d-flex rounded w-100 align-items-center justify-content-center mx-2 py-4 position-relative bg-cover bg-center bg-no-repeat" style="background-image: url({{asset('front/img/product.jpg')}} );">
                                                 <div class="text-center">
                                                     <h5 class="text-white">Flat 20% Off</h5>
                                                     <h2 class="text-white h2 m-0"><a class="stretched-link text-reset" href="#">Big Sale Offer</a></h2>

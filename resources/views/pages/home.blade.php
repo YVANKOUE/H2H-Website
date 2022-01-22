@@ -2,6 +2,7 @@
 @section('title', trans('Home'))
 
 @section('content')
+
 <main>
     <!-- Home Slider -->
     <div class="slick-carousel slick-nav-rounded" data-slick='{
@@ -51,7 +52,7 @@
                     <div class="hover-scale">
                         <div class="hover-scale-in">
                             <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                             </a>
                         </div>
                         <div class="text-center mx-4 mt-n5 position-relative z-index-1 bg-white shadow p-4">
@@ -64,7 +65,7 @@
                     <div class="hover-scale">
                         <div class="hover-scale-in">
                             <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                             </a>
                         </div>
                         <div class="text-center mx-4 mt-n5 position-relative z-index-1 bg-white shadow p-4">
@@ -77,7 +78,7 @@
                     <div class="hover-scale">
                         <div class="hover-scale-in">
                             <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                             </a>
                         </div>
                         <div class="text-center mx-4 mt-n5 position-relative z-index-1 bg-white shadow p-4">
@@ -90,7 +91,7 @@
                     <div class="hover-scale">
                         <div class="hover-scale-in">
                             <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                             </a>
                         </div>
                         <div class="text-center mx-4 mt-n5 position-relative z-index-1 bg-white shadow p-4">
@@ -127,7 +128,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -175,7 +176,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -223,7 +224,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -271,7 +272,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -319,7 +320,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -367,7 +368,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -415,7 +416,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -463,7 +464,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -508,7 +509,7 @@
                 <div class="col-lg-4">
                     <div class="position-relative hover-scale">
                         <div class="hover-scale-in">
-                            <img class="w-100" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                            <img class="w-100" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                         </div>
                         <div class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center top-0 left-0">
                             <div class="text-center bg-white px-4 py-3">
@@ -524,7 +525,7 @@
                 <div class="col-lg-4">
                     <div class="position-relative hover-scale">
                         <div class="hover-scale-in">
-                            <img class="w-100" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                            <img class="w-100" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                         </div>
                         <div class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center top-0 left-0">
                             <div class="text-center bg-white px-4 py-3">
@@ -540,7 +541,7 @@
                 <div class="col-lg-4">
                     <div class="position-relative hover-scale">
                         <div class="hover-scale-in">
-                            <img class="w-100" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                            <img class="w-100" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                         </div>
                         <div class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center top-0 left-0">
                             <div class="text-center bg-white px-4 py-3">
@@ -613,7 +614,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -661,7 +662,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -709,7 +710,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -757,7 +758,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -805,7 +806,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
@@ -853,7 +854,7 @@
                             </div>
                             <div class="product-media">
                                 <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/1000x1000.jpg')}} " title="" alt="">
+                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
                                 </a>
                                 <div class="product-action nav justify-content-center">
                                     <a href="#" class="btn btn-primary">
