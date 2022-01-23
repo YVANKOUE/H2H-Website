@@ -2,6 +2,7 @@
 
 namespace App\Models\Products;
 
+use Attribute;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -19,13 +20,13 @@ class SubCategory extends Model
         return 'slug';
     }
 
-    // Accessors
+    // Accessors and Mutators
     public function getImageAttribute($image)
     {
         return asset(root_path() . '/sub-categories/images/' . $image);
     }
     
-    // Mutators
+    // 
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;

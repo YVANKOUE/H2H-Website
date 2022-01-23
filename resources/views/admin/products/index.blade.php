@@ -29,8 +29,8 @@
                                         <th>@lang('Name')</th>
                                         <th>@lang('Brand')</th>
                                         <th>@lang('Price') (€)</th>
-                                        <th>@lang('Category')</th>
-                                        <th>@lang('Sub-category')</th>
+                                        {{-- <th>@lang('Category')</th> --}}
+                                        <th>@lang('Subcategory')</th>
                                         <th>@lang('Availability')</th>
                                         <th>@lang('Action')</th>
                                     </tr>
@@ -42,27 +42,31 @@
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->brand }}</td>
                                             <td>{{ $product->price }}</td>
-                                            <td>{{ $product->subCategory->category->name }}</td>
+                                            {{-- <td>{{ $product->subCategory->category->name }}</td> --}}
                                             <td>{{ $product->subCategory->name }}</td>
                                             <td>
                                                 <p title="{{ $product->available ? trans('Available') : trans('Unavailable') }}">
                                                     <i class="text-{{ $product->available ? 'success' : 'danger' }}" data-feather="{{ $product->available ? 'check' : 'alert-triangle' }}"></i>
                                                 </p>
                                             </td>
-                                            {{-- <td>
-                                                <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $product->description }}">...</button>
-                                            </td> --}}
                                             <td>
                                                 <a href="{{ route('admin.products.edit', $product->slug) }}"
-                                                    class="btn btn-sm btn-primary btn-icon mr-2" title="Edit details">
+                                                    class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit details')">
                                                     <span class="fas fa-pen"> </span> 
                                                 </a>
                                                 <form method="POST" action="{{ route('admin.products.destroy', $product->slug) }}"
                                                     accept-charset="UTF-8" class="delete d-inline">
-                                                    @method("DELETE")
+                                                    @method('DELETE')
                                                     @csrf
 
-                                                    <button class="btn btn-sm btn-danger btn-icon delete"><span class="fas fa-trash"></span></button>
+                                                    <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')"><span class="fas fa-trash"></span></button>
+                                                </form>
+                                                </a>
+                                                <form method="POST" action="{{ route('admin.products.available', $product->slug) }}" accept-charset="UTF-8" class="delete d-inline">
+                                                    @method('PATCH')
+                                                    @csrf
+
+                                                    <button class="btn btn-sm btn-{{ $product->available ? 'success' : 'danger' }} btn-icon" title="@lang('Set availability')"><span class="fa fa-refresh"></span></button>
                                                 </form>
                                             </td>
                                         </tr>            

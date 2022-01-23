@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Admin\Products;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Products\Size;
 use App\Models\Products\Color;
 use App\Models\Products\Product;
-use App\Models\Products\Size;
+use App\Http\Controllers\Controller;
 use App\Models\Products\SubCategory;
-use Illuminate\Http\Request;
+use App\Repositories\ProductRepository;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\CreateProductRequest;
 
 class ProductsController extends Controller
 {
@@ -41,12 +43,14 @@ class ProductsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProductRequest $request, ProductRepository $productRepository)
     {
-        //
+        $productRepository->saveProduct($request);
+
+        Alert::toast(trans('Product has been successfully added.'), 'success');
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -79,13 +83,15 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Products\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(CreateProductRequest $request, ProductRepository $productRepository, Product $product)
     {
-        //
+        $productRepository->updateProduct($request, $product);
+
+        Alert::toast(trans('Product has been successfully updated.'), 'success');
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -97,7 +103,22 @@ class ProductsController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+
         Alert::toast(trans('Product has been successfully deleted.'), 'success');
+        return back();
+    }
+
+    /**
+     * Update the specified resource' available column in storage
+     * 
+     * @param  \App\Models\Products\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function available(Product $product)
+    {
+        $product->update(['available' => $product->available ? 0 : 1]);
+
+        Alert::toast(trans('Product\'s status has been successfully updated.'), 'success');
         return back();
     }
 }

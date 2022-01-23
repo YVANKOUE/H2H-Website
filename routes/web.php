@@ -50,6 +50,7 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
             Route::resource('sub-categories', SubCategoriesController::class)->except('create', 'show');
             // Products
             Route::resource('products', ProductsController::class);
+            Route::patch('products/{product}/available', [ProductsController::class, 'available'])->name('products.available');
         });
     });
     Route::get('/home', [HomeController::class, 'index'])->name('home');

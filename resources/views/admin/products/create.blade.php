@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="section-body">
-        <div class="container-fluid">
+        <div class="container-fluid" id="content">
             <div class="card">
                 <div class="card-header">
                     <!--begin::Page Heading-->
@@ -18,7 +18,7 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <a href="" class="text-muted">@lang('Products')</a>
+                                <a href="{{ route('admin.products.index') }}" class="text-muted">@lang('Products')</a>
                             </li>
                             <li class="breadcrumb-item text-muted">
                                 <span class="text-muted">@lang('New Product')</span>
@@ -26,6 +26,9 @@
                         </ul>
                         <!--end::Breadcrumb-->
                     </div>
+                    {{-- <div class="text-right">
+                        <button class="btn btn-primary" onclick="updateDiv()"><i data-feather="refresh-cw"></i></button>
+                    </div> --}}
                     <!--end::Page Heading-->
                 </div>
 
@@ -35,15 +38,15 @@
                         
                         <div class="card-footer border font-weight-bolder col-xl-6 mr-2 col-xxl-5">
                             <!--begin::Wizard Form-->
-                            <form class="form" method="POST"
-                                action="{{ route('admin.categories.store') }}" enctype="multipart/form-data">
+                            <form class="form" method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
                                 @csrf
+                                @method('POST')
 
                                 <div class="row justify-content-center">
                                     <div class="col-xl-11">
                                         <!--begin::Name-->
                                         <div class="form-group row">
-                                            <label for="name" class="col-sm-3 col-form-label">@lang('Name')</label>
+                                            <label for="name" class="col-sm-3 col-form-label">@lang('Name')<sup class="text-danger">*</sup></label>
                                             <div class="col-lg-9 col-xl-9 col-sm-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <input type="text" class="form-control form-control-solid @error('name') 
@@ -77,17 +80,17 @@
 
                                         <!--begin::Sub category-->
                                         <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">@lang('Sub category')</label>
+                                            <label class="col-sm-3 col-form-label">@lang('Subcategory')<sup class="text-danger">*</sup></label>
                                             <div class="col-lg-9 col-xl-9">
                                                 <div class="input-group input-group-solid input-group-lg">
-                                                    <select class="form-control select2 @error('sub_category') is-invalid @enderror" name="sub_category" id="sub_category">
-                                                        <option disabled selected>@lang('Select a sub category')</option>
+                                                    <select class="form-control select2 @error('sub_category_id') is-invalid @enderror" name="sub_category_id" id="sub_category" required>
+                                                        <option disabled selected>@lang('Select a subcategory')</option>
                                                         @foreach ($subCategories as $subCategory)
-                                                            <option value="{{ $subCategory->id }}">{{ $subCategory->name }}</option>
+                                                            <option value="{{ $subCategory->id }}" {{ old('sub_category_id') == $subCategory->id ? 'selected' : '' }}>{{ $subCategory->name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                @error('sub_category')
+                                                @error('sub_category_id')
                                                     <span class="form-text text-muted" role="alert"><strong class="text-danger sub_category">{{ $message }}</strong></span>
                                                 @enderror
                                             </div>
@@ -96,7 +99,7 @@
 
                                         <!--begin::Description-->
                                         <div class="form-group row">
-                                            <label for="mini_description" class="col-xl-3 col-lg-3 col-form-label">@lang('Description')</label>
+                                            <label for="mini_description" class="col-xl-3 col-lg-3 col-form-label">@lang('Description')<sup class="text-danger">*</sup></label>
                                             <div class="col-lg-9 col-xl-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <textarea class="form-control form-control-solid @error('mini_description') 
@@ -111,7 +114,7 @@
 
                                         <!--begin::Long description-->
                                         <div class="form-group row">
-                                            <label for="long_description" class="col-xl-3 col-lg-3 col-form-label">@lang('Long description')</label>
+                                            <label for="long_description" class="col-xl-3 col-lg-3 col-form-label">@lang('Long description')<sup class="text-danger">*</sup></label>
                                             <div class="col-lg-9 col-xl-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <textarea class="form-control form-control-solid @error('long_description') 
@@ -126,11 +129,11 @@
 
                                         <!--begin::Brand-->
                                         <div class="form-group row">
-                                            <label for="brand" class="col-sm-3 col-form-label">@lang('Brand')</label>
+                                            <label for="brand" class="col-sm-3 col-form-label">@lang('Brand')<sup class="text-danger">*</sup></label>
                                             <div class="col-lg-9 col-xl-9 col-sm-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <input type="text" class="form-control form-control-solid @error('brand') 
-                                                        is-invalid @enderror" name="brand" id="brand" value="{{ old('brand') }}"/>
+                                                        is-invalid @enderror" name="brand" id="brand" value="{{ old('brand') }}" required/>
                                                 </div> 
                                                 @error('brand')
                                                     <span class="form-text text-muted" role="alert"><strong class="text-danger brand">{{ $message }}</strong></span>
@@ -141,11 +144,11 @@
 
                                         <!--begin::Price-->
                                         <div class="form-group row">
-                                            <label for="price" class="col-sm-3 col-form-label">@lang('Price')</label>
+                                            <label for="price" class="col-sm-3 col-form-label">@lang('Price')<sup class="text-danger">*</sup></label>
                                             <div class="col-lg-9 col-xl-9 col-sm-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <input type="number" class="form-control form-control-solid @error('price') 
-                                                        is-invalid @enderror" name="price" id="price" value="{{ old('price') }}"/>
+                                                        is-invalid @enderror" name="price" id="price" value="{{ old('price') }}" required/>
                                                 </div> 
                                                 @error('price')
                                                     <span class="form-text text-muted" role="alert"><strong class="text-danger price">{{ $message }}</strong></span>
@@ -156,64 +159,80 @@
 
                                         <!--begin::Available-->
                                         <div class="form-group row">
-                                            <label for="available" class="col-sm-3 col-form-label">@lang('Available')</label>
-                                            <div class="col-lg-9 col-xl-9 col-sm-9">
+                                            <label for="available" class="col-sm-3 col-form-label">@lang('Available')<sup class="text-danger">*</sup></label>
+                                            <div class="col-lg-9 col-xl-9 col-sm-9 @error('available') 
+                                            is-invalid @enderror">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                    <input class="form-check-input" type="radio" name="available" id="inlineRadio1" value="1" {{ old('available') == 1 ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="inlineRadio1">@lang('Yes')</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                    <input class="form-check-input" type="radio" name="available" id="inlineRadio2" value="0" {{ old('available') == 0 ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="inlineRadio2">@lang('No')</label>
                                                 </div>
+                                                @error('available')
+                                                    <span class="form-text text-muted" role="alert"><strong class="text-danger price">{{ $message }}</strong></span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--end::Available-->
 
                                         <!--begin::Colors-->
                                         <div class="form-group row">
-                                            <label class="col-xl-3 col-lg-3 col-form-label">@lang('Colors')</label>
+                                            <label class="col-xl-3 col-lg-3 col-form-label">@lang('Colors')<sup class="text-danger">*</sup></label>
                                             <div class="col-lg-9 col-xl-9 col-sm-9">
                                                 <div class="input-group input-group-solid input-group-lg">
-                                                    <select multiple="multiple" class="form-control select2" name="colors[]" id="colors" required>
-                                                        @foreach($colors as $color)
-                                                            <option value="{{ $color->id }}">{{ $color->name }}</option>
+                                                    <select multiple="multiple" class="form-control select2 @error('colors.*') 
+                                                    is-invalid @enderror" name="colors[]" id="colors" required>
+                                                        @foreach($colors as $key => $color)
+                                                            <option value="{{ $color->id }}" {{ old('colors') && in_array($color->id, old('colors')) ? 'selected' : '' }}>{{ $color->name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                                @error('colors.*')
+                                                    <span class="form-text text-muted" role="alert"><strong class="text-danger price">{{ $message }}</strong></span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--end::Colors-->
 
                                         <!--begin::Sizes-->
                                         <div class="form-group row">
-                                            <label class="col-xl-3 col-lg-3 col-form-label">@lang('Sizes')</label>
+                                            <label class="col-xl-3 col-lg-3 col-form-label">@lang('Sizes')<sup class="text-danger">*</sup></label>
                                             <div class="col-lg-9 col-xl-9 col-sm-9">
                                                 <div class="input-group input-group-solid input-group-lg">
-                                                    <select multiple="multiple" class="form-control select2" name="sizes[]" id="sizes" required>
+                                                    <select multiple="multiple" class="form-control select2 @error('sizes.*') 
+                                                    is-invalid @enderror" name="sizes[]" id="sizes" required>
                                                         @foreach($sizes as $size)
-                                                            <option value="{{ $size->id }}">{{ $size->size }}</option>
+                                                            <option value="{{ $size->id }}" {{ old('sizes') && in_array($size->id, old('sizes')) ? 'selected' : '' }}>{{ $size->size }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                                @error('sizes.*')
+                                                    <span class="form-text text-muted" role="alert"><strong class="text-danger price">{{ $message }}</strong></span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--end::Sizes-->
 
                                         <!--begin::Images-->
                                         <div class="form-group row">
-                                            <label class="col-xl-3 col-lg-3 col-sm-3 col-form-label">@lang('Images')</label>
-                                            <div id="mydropzone" class="dropzone col-lg-9 col-xl-9 col-sm-9">
+                                            <label class="col-xl-3 col-lg-3 col-sm-3 col-form-label">@lang('Images')<sup class="text-danger">*</sup></label>
+                                            <div class="col-lg-9 col-xl-9 col-sm-9 @error('images.*') 
+                                            is-invalid @enderror">
                                                 <div class="fallback">
-                                                    <input name="file" type="file" multiple />
+                                                    <input name="images[]" type="file" multiple />
                                                 </div>
+                                                @error('images.*')
+                                                    <span class="form-text text-muted" role="alert"><strong class="text-danger price">{{ $message }}</strong></span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <!--end::Images-->
 
                                         <!--begin::Wizard Actions-->
                                         <div class="card-footer border-top font-weight-bolder text-right">
-                                            <button class="btn btn-primary">@lang('Save')</button>
+                                            <button type="submit" class="btn btn-primary">@lang('Save')</button>
                                         </div>
                                         <!--end::Wizard Actions-->
 
@@ -297,12 +316,19 @@
             </div>
         </div>
     </div>
-
-    
                                     
     {{-- COLORS MODAL --}}
     @include('admin.products.modals.colors')
 
     {{-- SIZES MODAL --}}
     @include('admin.products.modals.sizes')
+
+    @push('scripts')
+        <script>
+            function updateDiv()
+            { 
+                $("#content").load(window.location.href + " #content" );
+            }
+        </script>
+    @endpush
 @endsection

@@ -35,7 +35,7 @@ class SubCategoriesController extends Controller
             'name' => 'required|string|unique:sub_categories,name|max:35',
             'category_id' => 'required|integer|exists:categories,id',
             'description' => 'required|string',
-            'image' => 'sometimes|image|mimes:png,jpg,jpeg,gif,svg'
+            'image' => 'sometimes|image|mimes:png,jpg,jpeg,gif,svg|max:2000'
         ]);
         
         SubCategory::create($request->except('_token', '_method'));

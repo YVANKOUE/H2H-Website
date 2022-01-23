@@ -11,6 +11,12 @@ class Image extends Model
 
     protected $fillable = ['name', 'product_id'];
 
+    // Accessors and Mutators
+    public function getNameAttribute($name)
+    {
+        return asset(root_path() . '/products/images/' . $name);
+    }
+
     // RELATIONSHIPS
     public function product()
     {
