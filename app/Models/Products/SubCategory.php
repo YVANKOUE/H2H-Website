@@ -50,4 +50,14 @@ class SubCategory extends Model
     {
         return $this->hasMany(\App\Models\Products\Product::class);
     }
+    
+    // Event for deleting related products for specified subCategory
+    protected static function booted()
+    {
+        static::deleted(function ($subCategory) {
+            foreach ($subCategory->products as $product) {
+                $product->delete();
+            }
+        });
+    }
 }
