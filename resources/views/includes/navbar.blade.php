@@ -31,6 +31,7 @@
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{{asset('assets/img/langue.png')}}"
                 class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span>
             </a>
+            
 
             <div class="dropdown-menu dropdown-menu-right pullDown">
                   <div class="dropdown-item has-icon">

@@ -31,78 +31,68 @@
                 <!--begin::Body-->
                 <div class="card-body p-0">
                     <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
-                        <div class="col-xl-12 col-xxl-10">
+                        <div class="col-xl-8 col-xxl-7">
                             <!--begin::Wizard Form-->
                             <form class="form" method="POST"
                                 action="{{ route('admin.categories.update',['category'=>$category]) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
-                                <div class="row justify-content-center">
-                                    <div class="col-xl-9">
-
-                                        <!--begin::Group-->
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">@lang('Image')</label>
-                                            <div class="col-lg-9 col-xl-9 col-sm-9">
-                                                <div class="image-input image-input-outline" id="kt_user_add_avatar">
-                                                    <div class="image-input-wrapper" style="background-image: url({{asset('assets/img/banner/1.png')}}"></div>
-                                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change image">
-                                                        <i class="fa fa-pen icon-sm text-muted"></i>
-                                                        <input type="file" name="image" id="image" class="@error('image') is-invalid @enderror" accept=".png, .jpg, .jpeg" value="{{old('image')}}"/>
-
-                                                    </label>
-                                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel image">
-                                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                                    </span>
-                                                </div>
-                                                @error('image')
-                                                    <span class="form-text text-muted" role="alert"><strong class="text-danger image">{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <!--end::Group-->
-
-                                        <!--begin::Name-->
-                                        <div class="form-group row">
-                                            <label for="name" class="col-sm-3 col-form-label">@lang('Name')</label>
-                                            <div class="col-lg-9 col-xl-9">
-                                                <div class="input-group input-group-solid input-group-lg">
-                                                    <input type="text" class="form-control form-control-solid @error('name') 
-                                                        is-invalid @enderror" name="name" id="name" value="{{ old('name') ?? $category->name }}"/>
-                                                </div> 
-                                                @error('name')
-                                                    <span class="form-text text-muted" role="alert"><strong class="text-danger name">{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <!--end::Name-->
-
-                                        <!--begin::Description-->
-                                        <div class="form-group row">
-                                            <label for="description" class="col-xl-3 col-lg-3 col-form-label">@lang('Description')</label>
-                                            <div class="col-lg-9 col-xl-9">
-                                                <div class="input-group input-group-solid input-group-lg">
-                                                    <textarea class="form-control form-control-solid @error('description') 
-                                                        is-invalid @enderror" id="description" name="description" required> {{ old('description') ?? $category->description}}</textarea>
-                                                </div>
-                                                @error('description')
-                                                    <span class="form-text text-muted" role="alert"><strong class="text-danger description">{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <!--end::Description-->
-
-                                        <!--begin::Wizard Actions-->
-                                        <div class="card-footer border-top font-weight-bolder text-right">
-                                            <button class="btn btn-primary">@lang('Submit')</button>
-                                        </div>
-                                        <!--end::Wizard Actions-->
-
+                                <!--begin::Name-->
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-2 col-form-label">@lang('Name') <span class="text-danger">*</span></label>
+                                    <div class="col-lg-10 col-xl-10">
+                                        <div class="input-group input-group-solid input-group-lg">
+                                            <input type="text" class="form-control form-control-solid @error('name') 
+                                                is-invalid @enderror" name="name" id="name" value="{{ old('name') ?? $category->name }}"/>
+                                        </div> 
+                                        @error('name')
+                                            <span class="form-text text-muted" role="alert"><strong class="text-danger name">{{ $message }}</strong></span>
+                                        @enderror
                                     </div>
                                 </div>
+                                <!--end::Name-->
+
+                                <!--begin::Description-->
+                                <div class="form-group row">
+                                    <label for="description" class="col-sm-2 col-form-label">@lang('Description') <span class="text-danger">*</span></label>
+                                    <div class="col-lg-10 col-xl-10">
+                                        <div class="input-group input-group-solid input-group-lg">
+                                            <textarea class="form-control form-control-solid @error('description') 
+                                                is-invalid @enderror" id="description" name="description" required> {{ old('description') ?? $category->description}}</textarea>
+                                        </div>
+                                        @error('description')
+                                            <span class="form-text text-muted" role="alert"><strong class="text-danger description">{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <!--end::Description-->
+
+                                <!--begin::Image-->
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">@lang('Update image')</label>
+                                    <div class="col-lg-10 col-xl-10">
+                                        <div class="input-group input-group-solid input-group-lg">
+                                            <input type="file" class="form-control form-control-solid @error('image') is-invalid @enderror" 
+                                                value="{{ old('image') }}" name="image" id="image">
+                                        </div>
+                                        @error('image')
+                                            <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <!--end::Image-->
+
+                                <div class="modal-footer bg-whitesmoke br">
+                                    <button type="submit" class="btn btn-primary">@lang('Submit')</button>
+                                </div>
+                                <!--end::Wizard Actions-->
                             </form>
                             <!--end::Wizard Form-->
+                        </div>
+
+                        <div class="col-xl-4 col-xxl-5">
+                            <img src="{{ $category->image }}" alt="">
                         </div>
                     </div>
                 </div>

@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\CreateUserRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UsersController extends Controller
 {
@@ -49,18 +50,9 @@ class UsersController extends Controller
         $roles = $request->input('roles') ? $request->input('roles') : [];        
         $user->assignRole($roles);
 
-        return redirect()->route('admin.users.index');
-    }
+        Alert::toast(trans('User has been successfully added.'), 'success');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return back();
     }
 
     /**
@@ -96,6 +88,8 @@ class UsersController extends Controller
         $roles = $request->input('roles') ? $request->input('roles') : [];
         $user->syncRoles($roles);
 
+        Alert::toast(trans('User has been successfully updated.'), 'success');
+
         return redirect()->route('admin.users.index');
     }
 
@@ -108,6 +102,8 @@ class UsersController extends Controller
     public function destroy(User $user)
     {        
         $user->delete();
-        return redirect()->route('admin.users.index');
+
+        Alert::toast(trans('User has been successfully removed.'), 'success');
+        return back();
     }
 }

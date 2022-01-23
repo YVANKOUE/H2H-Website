@@ -45,7 +45,7 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
             Route::resource('roles', RolesController::class);
 
             // Categories
-            Route::resource('categories', CategoriesController::class)->except('show');
+            Route::resource('categories', CategoriesController::class)->except('create', 'show');
             // SubCategories
             Route::resource('sub-categories', SubCategoriesController::class)->except('create', 'show');
             // Products
@@ -54,6 +54,12 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
         });
     });
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
+    Route::get('/shop_detail', [HomeController::class, 'shop_detail'])->name('shop_detail');
+    Route::view('/about', 'pages.about')->name('about');
+    Route::view('/privacy_policy', 'pages.privacy_policy')->name('privacy_policy');
+    Route::view('/terms_conditions', 'pages.terms_conditions')->name('terms_conditions');
+
     Route::get('/test', [HomeController::class, 'test'])->name('test');
 
     require __DIR__.'/auth.php';

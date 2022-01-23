@@ -5,40 +5,28 @@
 
  <!--begin::Wizard Step 1-->
  <div class="my-5 step" data-wizard-type="step-content" data-wizard-state="current">
-    {{-- <h5 class="text-dark font-weight-bold mb-10">@lang("User's Profile Details"):</h5> --}}
-
-    <!--begin::Group-->
+    <!--begin::Image-->
     <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Avatar</label>
-        <div class="col-lg-9 col-xl-9 col-sm-9">
-            <div class="image-input image-input-outline" id="kt_user_add_avatar">
-                <div class="image-input-wrapper" style="background-image: url(@if ($route == 'admin.users.create') {{asset('assets/img/banner/1.png')}} @else {{$user->avatar}}) @endif"></div>
-                <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-                    <i class="fa fa-pen icon-sm text-muted"></i>
-                    <input type="file" name="avatar" id="avatar" class="@error('avatar') is-invalid @enderror" accept=".png, .jpg, .jpeg" value="@if ($route == 'admin.users.create')
-                    {{old('avatar')}}
-                    @else
-                     {{$user->avatar}}
-                    @endif"/>
-
-                </label>
-                <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-                    <i class="ki ki-bold-close icon-xs text-muted"></i>
-                </span>
+        <label class="col-sm-3 col-form-label">@lang('Image')</label>
+        <div class="col-lg-9 col-xl-9">
+            <div class="input-group input-group-solid input-group-lg">
+                <input type="file" name="avatar" id="avatar" class="form-control form-control-solid @error('avatar') is-invalid @enderror" accept=".png, .jpg, .jpeg" 
+                    value="@if ($route == 'admin.users.create') {{old('avatar')}} @else {{$user->avatar}} @endif"/>
             </div>
             @error('avatar')
                 <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
             @enderror
         </div>
     </div>
-    <!--end::Group-->
+    <!--end::Image-->
 
     <!--begin::Group-->
     <div class="form-group row">
-        <label class="col-sm-3 col-form-label">@lang('Name')</label>
+        <label class="col-sm-3 col-form-label">@lang('Name') <span class="text-danger">*</span></label>
         <div class="col-lg-9 col-xl-9">
             <div class="input-group input-group-solid input-group-lg">
-                <input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" id="name" value="@if($route == 'admin.users.create'){{old('name')}}@else{{$user->name}}@endif"/>
+                <input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" 
+                    name="name" id="name" value="@if($route == 'admin.users.create'){{old('name')}}@else{{$user->name}}@endif"/>
             </div>
             @error('name')
                 <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
@@ -50,7 +38,7 @@
 
     <!--begin::Group-->
     <div class="form-group row">
-        <label class="col-sm-3 col-form-label">@lang('First Name')</label>
+        <label class="col-sm-3 col-form-label">@lang('First Name') <span class="text-danger">*</span></label>
         <div class="col-lg-9 col-xl-9">
             <div class="input-group input-group-solid input-group-lg">
                 <input type="text" class="form-control form-control-solid @error('last_name') is-invalid @enderror" name="last_name" id="last_name" value="@if($route == 'admin.users.create'){{old('last_name')}}@else{{$user->last_name}}@endif"/>
@@ -65,7 +53,7 @@
 
     <!--begin::Group-->
     <div class="form-group row">
-        <label class="col-xl-3 col-lg-3 col-form-label">@lang('Email')</label>
+        <label class="col-xl-3 col-lg-3 col-form-label">@lang('Email') <span class="text-danger">*</span></label>
         <div class="col-lg-9 col-xl-9">
             <div class="input-group input-group-solid input-group-lg">
                 <input type="text" class="form-control form-control-solid @error('email') is-invalid @enderror" name="email" id="email" value="@if($route == 'admin.users.create'){{old('email')}}@else{{$user->email}}@endif" />
@@ -80,7 +68,7 @@
 
     <!--begin::Group-->
     <div class="form-group row">
-        <label class="col-xl-3 col-lg-3 col-form-label">@lang('Phone')</label>
+        <label class="col-xl-3 col-lg-3 col-form-label">@lang('Phone') <span class="text-danger">*</span></label>
         <div class="col-lg-9 col-xl-9">
             <div class="input-group input-group-solid input-group-lg">
                 <input type="number" class="form-control form-control-solid @error('phone_number') is-invalid @enderror" name="phone_number" id="phone_number" value="@if($route == 'admin.users.create'){{old('phone_number')}}@else{{$user->phone_number}}@endif" />
@@ -96,15 +84,19 @@
     @if ($route == 'admin.users.create')    
         <!--begin::Group-->
         <div class="form-group row">
-            <label class="col-xl-3 col-lg-3 col-form-label">@lang('Password')</label>
+            <label class="col-xl-3 col-lg-3 col-form-label">@lang('Password') <span class="text-danger">*</span></label>
             <div class="col-lg-9 col-xl-9">
                 <div class="input-group input-group-solid input-group-lg">
-                    <input class="form-control form-control-solid @error('password') is-invalid @enderror" type="password" id="password" name="password" />
+                    <!-- Password field -->
+                    <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" name="password" id="password">
+                    <!-- An element to toggle between password visibility -->
+                    <div class="input-group-append">
+                        <div class="input-group-text" style="cursor: pointer;"><i class="far fa-eye" onclick="showPassword()"></i></div>
+                    </div>
                 </div>
                 @error('password')
                     <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                 @enderror
-                <span class="form-text text-muted" role="alert"><strong class="text-danger password" ></strong></span>
             </div>
         </div>
         <!--end::Group-->
@@ -114,7 +106,12 @@
             <label class="col-xl-3 col-lg-3 col-form-label">@lang('Password confirmation')</label>
             <div class="col-lg-9 col-xl-9">
                 <div class="input-group input-group-solid input-group-lg">
-                    <input class="form-control form-control-solid" type="password"  name="password_confirmation" />
+                    <!-- Password field -->
+                    <input type="password" class="form-control form-control-solid" name="password_confirmation" id="password_confirmation">
+                    <!-- An element to toggle between password visibility -->
+                    <div class="input-group-append">
+                        <div class="input-group-text" style="cursor: pointer;"><i class="far fa-eye" onclick="showConfirmPassword()"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -153,11 +150,32 @@
 
                 </div>
                 @error('permission')
-                <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                    <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                 @enderror
-                <span class="form-text text-muted" role="alert"><strong class="text-danger active" ></strong></span>
             </div>
         </div>
     @endif
 </div>
 <!--end::Wizard Step 1-->
+
+@push('scripts')
+        
+    <script>
+        function showPassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+        function showConfirmPassword() {
+            var y = document.getElementById("password_confirmation");
+            if (y.type === "password") {
+                y.type = "text";
+            } else {
+                y.type = "password";
+            }
+        }
+    </script>
+@endpush
