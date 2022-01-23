@@ -28,7 +28,7 @@
                             </tbody>
                         </table>
                     @else
-                        <p class="text-center text-info">@lang('No color yet.')</p>
+                        <p class="text-center text-info">@lang('No size yet.')</p>
                     @endif
                 </div>
             </div>

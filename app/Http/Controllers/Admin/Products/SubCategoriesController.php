@@ -40,7 +40,7 @@ class SubCategoriesController extends Controller
         
         SubCategory::create($request->except('_token', '_method'));
 
-        Alert::toast(trans('Sub-category has been successfully added.'), 'success');
+        Alert::toast(trans('Subcategory has been successfully added.'), 'success');
         return back();
     }
 
@@ -76,7 +76,7 @@ class SubCategoriesController extends Controller
 
         $subCategory->update($request->except('_token', '_method'));
         
-        Alert::toast(trans('Sub-category has been successfully updated.'), 'success');
+        Alert::toast(trans('Subcategory has been successfully updated.'), 'success');
         return redirect()->route('admin.sub-categories.index');
     }
 
@@ -90,7 +90,7 @@ class SubCategoriesController extends Controller
     {
         $subCategory->delete();
         
-        Alert::toast(trans('Sub-category has been successfully removed.'), 'success');
+        Alert::toast(trans('Subcategory has been successfully removed.'), 'success');
         return back();
     }
 }

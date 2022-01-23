@@ -84,7 +84,7 @@ class CategoriesController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        Alert::toast(trans('Sub-category has been successfully removed.'), 'success');
+        Alert::toast(trans('Category has been successfully removed.'), 'success');
         return back();
     }
 }

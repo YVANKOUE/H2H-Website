@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('title')
-    {{ config('app.name') }} | @lang('Sub-categories') | @lang('Sub-category edition')
+    {{ config('app.name') }} | @lang('Subcategories') | @lang('Subcategory edition')
 @endsection
 
 @section('content')
@@ -12,15 +12,15 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap">
                     <!--begin::Page Title-->
-                    <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('Sub-categories Management')</h5>
+                    <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('Subcategories Management')</h5>
                     <!--end::Page Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{ route('admin.sub-categories.index') }}" class="text-muted">@lang('Sub-categories')</a>
+                            <a href="{{ route('admin.sub-categories.index') }}" class="text-muted">@lang('Subcategories')</a>
                         </li>
                         <li class="breadcrumb-item text-muted">
-                            <span class="text-muted">@lang('Sub-category edition')</span>
+                            <span class="text-muted">@lang('Subcategory edition')</span>
                         </li>
                     </ul>
                     <!--end::Breadcrumb-->
@@ -101,7 +101,6 @@
         
                             <div class="modal-footer bg-whitesmoke br">
                                 <button type="submit" class="btn btn-primary">@lang('Submit')</button>
-                                <button type="reset" class="btn btn-secondary">@lang('Reset')</button>
                             </div>
                         </form>
                     </div>

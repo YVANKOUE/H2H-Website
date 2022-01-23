@@ -21,7 +21,7 @@
                                 <a href="{{ route('admin.products.index') }}" class="text-muted">@lang('Products')</a>
                             </li>
                             <li class="breadcrumb-item text-muted">
-                                <span class="text-muted">@lang('New Product')</span>
+                                <span class="text-muted">@lang('Edit ') {{ $product->name }}</span>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -80,7 +80,7 @@
 
                                         <!--begin::Description-->
                                         <div class="form-group row">
-                                            <label for="mini_description" class="col-xl-3 col-lg-3 col-form-label">@lang('Description')<sup class="text-danger">*</sup></label>
+                                            <label for="mini_description" class="col-xl-3 col-lg-3 col-form-label">@lang('Short description')<sup class="text-danger">*</sup></label>
                                             <div class="col-lg-9 col-xl-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <textarea class="form-control form-control-solid @error('mini_description') 

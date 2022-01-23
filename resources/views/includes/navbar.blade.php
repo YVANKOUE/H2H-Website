@@ -35,6 +35,7 @@
 
             <div class="dropdown-menu dropdown-menu-right pullDown">
                   <div class="dropdown-item has-icon">
+                    <a rel="alternate" href="{{route('langue',['locale' => 'de'])}}">@lang('Deutsch')</a> <br>
                     <a rel="alternate" href="{{route('langue',['locale' => 'en'])}}">@lang('English')</a> <br>
                     <a rel="alternate"  href="{{route('langue',['locale' => 'fr'])}}">@lang('French')</a>
                   </div>

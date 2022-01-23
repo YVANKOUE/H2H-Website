@@ -99,7 +99,7 @@
 
                                         <!--begin::Description-->
                                         <div class="form-group row">
-                                            <label for="mini_description" class="col-xl-3 col-lg-3 col-form-label">@lang('Description')<sup class="text-danger">*</sup></label>
+                                            <label for="mini_description" class="col-xl-3 col-lg-3 col-form-label">@lang('Short description')<sup class="text-danger">*</sup></label>
                                             <div class="col-lg-9 col-xl-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <textarea class="form-control form-control-solid @error('mini_description') 
@@ -232,7 +232,7 @@
 
                                         <!--begin::Wizard Actions-->
                                         <div class="card-footer border-top font-weight-bolder text-right">
-                                            <button type="submit" class="btn btn-primary">@lang('Save')</button>
+                                            <button type="submit" class="btn btn-primary">@lang('Submit')</button>
                                         </div>
                                         <!--end::Wizard Actions-->
 

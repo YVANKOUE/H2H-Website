@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('title')
-    {{ config('app.name') }} | @lang('Sub-categories')
+    {{ config('app.name') }} | @lang('Subcategories')
 @endsection
 
 @section('content')
@@ -17,7 +17,7 @@
                     @endif
                     <div class="card-header">
                         <div class="justify-content-start">
-                            <h4>@lang('Sub-categories list')</h4>
+                            <h4>@lang('Subcategories list')</h4>
                         </div>
                         <div class="justify-content-end">
                             <button type="button" class="btn btn-{{ $errors->any() ? 'danger' : 'primary' }}" data-toggle="modal" data-target="#addSubCategoryModal"><span class="fas fa-plus"></span></button>
@@ -46,7 +46,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.sub-categories.edit', $subCategory->slug) }}"
-                                                    class="btn btn-sm btn-primary btn-icon mr-2" title="Edit details">
+                                                    class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit details')">
                                                     <span class="fas fa-pen"> </span> 
                                                 </a>
                                                 <form method="POST" style="display: inline-block"
@@ -55,7 +55,7 @@
                                                     @method("DELETE")
                                                     @csrf
 
-                                                    <button class="btn btn-sm btn-danger btn-icon delete"><span class="fas fa-trash"></span></button>
+                                                    <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')"><span class="fas fa-trash"></span></button>
                                                 </form>
                                             </td>
                                         </tr>            

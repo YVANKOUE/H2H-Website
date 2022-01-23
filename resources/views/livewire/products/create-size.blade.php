@@ -11,7 +11,7 @@
         </div>
     @endif
     <div class="form-group row">
-        <label class="col-sm-3 col-form-label">@lang('size')</label>
+        <label class="col-sm-3 col-form-label">@lang('Size')</label>
         <div class="col-lg-9 col-xl-9 col-sm-9">
             <div class="input-group input-group-solid input-group-lg">
                 <input type="text" class="form-control form-control-solid @error('size') 

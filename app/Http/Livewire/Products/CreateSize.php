@@ -16,7 +16,7 @@ class CreateSize extends Component
         Size::create($validatedData);
         
         $this->reset(['size']);
-        $this->message = trans('Size added!');
+        $this->message = trans('Size added...');
     }
 
     public function render()

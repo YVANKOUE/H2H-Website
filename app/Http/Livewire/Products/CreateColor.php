@@ -20,7 +20,7 @@ class CreateColor extends Component
         Color::create($validatedData);
         
         $this->reset(['code', 'name']);
-        $this->message = trans('Color added!');
+        $this->message = trans('Color added...');
     }
 
     public function render()

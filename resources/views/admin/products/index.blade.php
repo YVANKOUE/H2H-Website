@@ -50,24 +50,23 @@
                                                 </p>
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.products.edit', $product->slug) }}"
-                                                    class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit details')">
-                                                    <span class="fas fa-pen"> </span> 
+                                                <a href="{{ route('admin.products.edit', $product->slug) }}" class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit details')">
+                                                    <span class="fas fa-pen"></span> 
                                                 </a>
                                                 <form method="POST" action="{{ route('admin.products.destroy', $product->slug) }}"
-                                                    accept-charset="UTF-8" class="delete d-inline">
+                                                    accept-charset="UTF-8" class="delete d-inline mr-2">
                                                     @method('DELETE')
                                                     @csrf
 
                                                     <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')"><span class="fas fa-trash"></span></button>
                                                 </form>
                                                 </a>
-                                                <form method="POST" action="{{ route('admin.products.available', $product->slug) }}" accept-charset="UTF-8" class="delete d-inline">
+                                                {{-- <form method="POST" action="{{ route('admin.products.available', $product->slug) }}" accept-charset="UTF-8" class="delete d-inline">
                                                     @method('PATCH')
                                                     @csrf
 
                                                     <button class="btn btn-sm btn-{{ $product->available ? 'success' : 'danger' }} btn-icon" title="@lang('Set availability')"><span class="fa fa-refresh"></span></button>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                         </tr>            
                                     @endforeach
