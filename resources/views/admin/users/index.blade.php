@@ -57,12 +57,12 @@
                         </td>
                         <td>
                             <a href="{{ route('admin.users.edit', ['user' => $user->id]) }}"
-                                class="btn btn-sm btn-primary btn-icon mr-2" title="Edit details">
+                                class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit details')">
                                 <span class="fas fa-pen"> </span> 
                             </a>
                             <form method="POST" style="display: inline-block"
                                 action="{{ route('admin.users.destroy', ['user' => $user->id]) }}"
-                                accept-charset="UTF-8" class="delete">
+                                accept-charset="UTF-8" title="@lang('Delete')" class="delete">
                                 @method("DELETE")
                                 @csrf
 

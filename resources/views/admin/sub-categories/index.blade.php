@@ -51,7 +51,7 @@
                                                 </a>
                                                 <form method="POST" style="display: inline-block"
                                                     action="{{ route('admin.sub-categories.destroy', $subCategory->slug) }}"
-                                                    accept-charset="UTF-8" class="delete">
+                                                    accept-charset="UTF-8" title="@lang('Delete')" class="delete">
                                                     @method("DELETE")
                                                     @csrf
 

@@ -28,7 +28,7 @@
                         <th>#</th>
                         <th>@lang('Name')</th>
                         <th>@lang('Permissions')</th>
-                        <th>Action</th>
+                        <th>@lang('Action')</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -43,12 +43,12 @@
                         </td>
                         <td>
                             <a href="{{ route('admin.roles.edit', ['role' => $role->id]) }}"
-                                class="btn btn-sm btn-primary btn-icon mr-2" title="Edit details">
+                                class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit details')">
                                 <span class="fas fa-pen"> </span> 
                             </a>
                             <form method="POST" style="display: inline-block"
                                 action="{{ route('admin.roles.destroy', ['role' => $role->id]) }}"
-                                accept-charset="UTF-8" class="delete">
+                                accept-charset="UTF-8" title="@lang('Delete')" class="delete">
                                 @method("DELETE")
                                 @csrf
 

@@ -25,7 +25,7 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $color->name }}</td>
                                         <td>
-                                            <span class="badge" style="background-color: {{ $color->code }}; color: {{ $color->code }}">something</span>
+                                            <span class="badge" style="background-color: {{ $color->code }}; color: {{ $color->code }}">@lang('something')</span>
                                         </td>
                                     </tr>
                                 @endforeach

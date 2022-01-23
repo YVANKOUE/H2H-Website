@@ -54,7 +54,7 @@
                                                     <span class="fas fa-pen"></span> 
                                                 </a>
                                                 <form method="POST" action="{{ route('admin.products.destroy', $product->slug) }}"
-                                                    accept-charset="UTF-8" class="delete d-inline mr-2">
+                                                    accept-charset="UTF-8" title="@lang('Delete')" class="delete d-inline mr-2">
                                                     @method('DELETE')
                                                     @csrf
 

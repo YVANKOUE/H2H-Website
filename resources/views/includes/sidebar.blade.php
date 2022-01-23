@@ -57,7 +57,7 @@
           </li>
 
           <li class="dropdown @if(Str::startsWith($route, 'admin.sub-categories'))active @endif">
-            <a href="{{ route('admin.sub-categories.index') }}" class="nav-link"><i data-feather="folder"></i><span>@lang('Sub-categories')</span></a>
+            <a href="{{ route('admin.sub-categories.index') }}" class="nav-link"><i data-feather="folder"></i><span>@lang('Subcategories')</span></a>
           </li>
 
           <li class="dropdown @if(Str::startsWith($route, 'admin.products'))active @endif">
