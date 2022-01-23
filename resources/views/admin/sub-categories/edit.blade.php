@@ -35,43 +35,46 @@
                         <form action="{{ route('admin.sub-categories.update', $subCategory->slug) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
-                            <!--begin::Group-->
+                            <!--begin::Name-->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">@lang('Name')<sup class="text-danger">*</sup></label>
                                 <div class="col-lg-10 col-xl-10 col-sm-10">
                                     <div class="input-group input-group-solid input-group-lg">
-                                        <input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" id="name" placeholder="@lang('Name')" value="{{ old('name') ?? $subCategory->name }}"/>
+                                        <input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" id="name" placeholder="@lang('Name')" value="{{ old('name') ?? $subCategory->name }}" required/>
                                     </div>
                                     @error('name')
                                         <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                                     @enderror
                                 </div>
                             </div>
-                            <!--end::Group-->
+                            <!--end::Name-->
         
-                            <!--begin::Group-->
+                            <!--begin::Description-->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">@lang('Description')<sup class="text-danger">*</sup></label>
                                 <div class="col-lg-10 col-xl-10 col-sm-10">
                                     <div class="input-group input-group-solid input-group-lg">
-                                        <textarea class="form-control form-control-solid @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="5" placeholder="@lang('Description')">{{ old('description') ?? $subCategory->description }}</textarea>
+                                        <textarea class="form-control form-control-solid @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="5" placeholder="@lang('Description')" required>{{ old('description') ?? $subCategory->description }}</textarea>
                                     </div>
                                     @error('description')
                                         <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                                     @enderror
                                 </div>
                             </div>
-                            <!--end::Group-->
+                            <!--end::Description-->
         
-                            <!--begin::Group-->
+                            <!--begin::Category-->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">@lang('Category')<sup class="text-danger">*</sup></label>
                                 <div class="col-lg-10 col-xl-10 col-sm-10">
                                     <div class="input-group input-group-solid input-group-lg">
                                         <select class="form-control select2 @error('category_id') is-invalid @enderror" name="category_id">
-                                            {{-- <option disabled selected>@lang('Select a category')</option> --}}
+                                            <option disabled selected>@lang('Select a category')</option>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}" {{ old('category_id') || ($subCategory->category->id === $category->id) ?? 'selected' }}>{{ $category->name }}</option>
+                                                <option value="{{ $category->id }}" 
+                                                    @if (old('category_id'))
+                                                        @if (old('category_id') == $category->id) selected @endif
+                                                    @elseif ($subCategory->category->id == $category->id) selected @endif>{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -80,9 +83,9 @@
                                     @enderror
                                 </div>
                             </div>
-                            <!--end::Group-->
+                            <!--end::Category-->
         
-                            <!--begin::Group-->
+                            <!--begin::Image-->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">@lang('Update image')</label>
                                 <div class="col-lg-10 col-xl-10 col-sm-10">
@@ -94,11 +97,11 @@
                                     @enderror
                                 </div>
                             </div>
-                            <!--end::Group-->
+                            <!--end::Image-->
         
                             <div class="modal-footer bg-whitesmoke br">
                                 <button type="submit" class="btn btn-primary">@lang('Submit')</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
+                                <button type="reset" class="btn btn-secondary">@lang('Reset')</button>
                             </div>
                         </form>
                     </div>

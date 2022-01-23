@@ -12,43 +12,43 @@
                 <form action="{{ route('admin.sub-categories.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
-                    <!--begin::Group-->
+                    <!--begin::Name-->
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">@lang('Name')<sup class="text-danger">*</sup></label>
                         <div class="col-lg-10 col-xl-10 col-sm-10">
                             <div class="input-group input-group-solid input-group-lg">
-                                <input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" id="name" placeholder="@lang('Name')" value="{{ old('name') }}"/>
+                                <input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" id="name" placeholder="@lang('Name')" value="{{ old('name') }}" required/>
                             </div>
                             @error('name')
                                 <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                             @enderror
                         </div>
                     </div>
-                    <!--end::Group-->
+                    <!--end::Name-->
 
-                    <!--begin::Group-->
+                    <!--begin::Description-->
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">@lang('Description')<sup class="text-danger">*</sup></label>
                         <div class="col-lg-10 col-xl-10 col-sm-10">
                             <div class="input-group input-group-solid input-group-lg">
-                                <textarea class="form-control form-control-solid @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="5" placeholder="@lang('Description')"></textarea>
+                                <textarea class="form-control form-control-solid @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="5" placeholder="@lang('Description')" required>{{ old('description') ?? '' }}</textarea>
                             </div>
                             @error('description')
                                 <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                             @enderror
                         </div>
                     </div>
-                    <!--end::Group-->
+                    <!--end::Description-->
 
-                    <!--begin::Group-->
+                    <!--begin::Category-->
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">@lang('Category')<sup class="text-danger">*</sup></label>
                         <div class="col-lg-10 col-xl-10 col-sm-10">
                             <div class="input-group input-group-solid input-group-lg">
-                                <select class="form-control form-control-solid @error('category_id') is-invalid @enderror" name="category_id">
+                                <select class="form-control form-control-solid @error('category_id') is-invalid @enderror" name="category_id" required>
                                     <option selected disabled>@lang('Select category')</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -57,9 +57,9 @@
                             @enderror
                         </div>
                     </div>
-                    <!--end::Group-->
+                    <!--end::Category-->
 
-                    <!--begin::Group-->
+                    <!--begin::Image-->
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">@lang('Image')</label>
                         <div class="col-lg-10 col-xl-10 col-sm-10">
@@ -71,7 +71,7 @@
                             @enderror
                         </div>
                     </div>
-                    <!--end::Group-->
+                    <!--end::Image-->
 
                     <div class="modal-footer bg-whitesmoke br">
                         <button type="submit" class="btn btn-primary">@lang('Submit')</button>

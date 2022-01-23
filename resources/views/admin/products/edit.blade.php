@@ -129,7 +129,7 @@
                                             <div class="col-lg-9 col-xl-9 col-sm-9">
                                                 <div class="input-group input-group-solid input-group-lg">
                                                     <input type="number" class="form-control form-control-solid @error('price') 
-                                                        is-invalid @enderror" name="price" id="price" value="{{ old('price') ?? $product->price }}" />
+                                                        is-invalid @enderror" name="price" id="price" value="{{ old('price') ?? $product->price }}" required/>
                                                 </div> 
                                                 @error('price')
                                                     <span class="form-text text-muted" role="alert"><strong class="text-danger price">{{ $message }}</strong></span>
