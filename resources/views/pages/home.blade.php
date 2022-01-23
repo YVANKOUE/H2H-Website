@@ -48,58 +48,23 @@
                 </div>
             </div>
             <div class="row g-3">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="hover-scale">
-                        <div class="hover-scale-in">
-                            <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                            </a>
-                        </div>
-                        <div class="text-center mx-4 mt-n5 position-relative z-index-1 bg-white shadow p-4">
-                            <h6 class="m-0"><a class="text-reset" href="#">Accessories</a></h6>
-                            <small>25 Products</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="hover-scale">
-                        <div class="hover-scale-in">
-                            <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                            </a>
-                        </div>
-                        <div class="text-center mx-4 mt-n5 position-relative z-index-1 bg-white shadow p-4">
-                            <h6 class="m-0"><a class="text-reset" href="#">Accessories</a></h6>
-                            <small>25 Products</small>
+                @forelse ($categories->take(4) as $category)
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="hover-scale">
+                            <div class="hover-scale-in">
+                                <a href="#">
+                                    <img class="img-fluid" src=" {{ asset($category->image) }} " title="{{ $category->name }}" alt="{{ $category->description }}">
+                                </a>
+                            </div>
+                            <div class="text-center mx-4 mt-n5 position-relative z-index-1 bg-white shadow p-4">
+                                <h6 class="m-0"><a class="text-reset" href="#">{{ $category->name }}</a></h6>
+                                {{-- <small>25 Products</small> --}}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="hover-scale">
-                        <div class="hover-scale-in">
-                            <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                            </a>
-                        </div>
-                        <div class="text-center mx-4 mt-n5 position-relative z-index-1 bg-white shadow p-4">
-                            <h6 class="m-0"><a class="text-reset" href="#">Accessories</a></h6>
-                            <small>25 Products</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="hover-scale">
-                        <div class="hover-scale-in">
-                            <a href="#">
-                                <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                            </a>
-                        </div>
-                        <div class="text-center mx-4 mt-n5 position-relative z-index-1 bg-white shadow p-4">
-                            <h6 class="m-0"><a class="text-reset" href="#">Accessories</a></h6>
-                            <small>25 Products</small>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                    <div class="alert alert-info text-center">@lang('No category yet.')</div>
+                @endforelse
             </div>
         </div>
     </section>
@@ -114,390 +79,58 @@
                 </div>
             </div>
             <div class="row">
-                <!-- Product Box -->
-                <div class="col-md-6 col-lg-3 my-3">
-                    <div class="product-card-2">
-                        <div class="product-card-image">
-                            <div class="badge-ribbon">
-                                <span class="badge bg-info">Sale</span>
-                            </div>
-                            <div class="product-wishlist">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </div>
-                            <div class="product-media">
-                                <a href="#">
+                @forelse ($products->take(8) as $product)
+                    <!-- Product Box -->
+                    <div class="col-md-6 col-lg-3 my-3">
+                        <div class="product-card-2">
+                            <div class="product-card-image">
+                                <div class="badge-ribbon">
+                                    <span class="badge bg-info">Sale</span>
+                                </div>
+                                <div class="product-wishlist">
+                                    <a href="#" class="btn btn-outline-primary">
+                                        <i class="bi bi-heart"></i>
+                                    </a>
+                                </div>
+                                <div class="product-media">
+                                    <a href="#">
                                     <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                                </a>
-                                <div class="product-action nav justify-content-center">
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-cart"></i>
                                     </a>
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-arrow-left-right"></i>
-                                    </a>
-                                    <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-primary">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
+                                    <div class="product-action nav justify-content-center">
+                                        <a href="#" class="btn btn-primary">
+                                            <i class="bi bi-cart"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-primary">
+                                            <i class="bi bi-arrow-left-right"></i>
+                                        </a>
+                                        <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-primary">
+                                            <i class="bi bi-eye-fill"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card-info">
+                                <div class="rating-star text">
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star-fill active"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                                <h6 class="product-title">
+                                    <a href="#">{{ $product->name }}</a>
+                                </h6>
+                                <div class="product-price">
+                                    <span class="text-primary">{{ $product->price }}</span>
+                                    {{-- <del class="fs-sm text-muted">$38.<small>50</small></del> --}}
                                 </div>
                             </div>
                         </div>
-                        <div class="product-card-info">
-                            <div class="rating-star text">
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <h6 class="product-title">
-                                <a href="#">Fine-knit sweater</a>
-                            </h6>
-                            <div class="product-price">
-                                <span class="text-primary">$28.<small>50</small></span>
-                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <!-- End Product Box -->
-                <!-- Product Box -->
-                <div class="col-md-6 col-lg-3 my-3">
-                    <div class="product-card-2">
-                        <div class="product-card-image">
-                            <div class="badge-ribbon">
-                                <span class="badge bg-info">Sale</span>
-                            </div>
-                            <div class="product-wishlist">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </div>
-                            <div class="product-media">
-                                <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                                </a>
-                                <div class="product-action nav justify-content-center">
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-arrow-left-right"></i>
-                                    </a>
-                                    <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-primary">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card-info">
-                            <div class="rating-star text">
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <h6 class="product-title">
-                                <a href="#">Fine-knit sweater</a>
-                            </h6>
-                            <div class="product-price">
-                                <span class="text-primary">$28.<small>50</small></span>
-                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Product Box -->
-                <!-- Product Box -->
-                <div class="col-md-6 col-lg-3 my-3">
-                    <div class="product-card-2">
-                        <div class="product-card-image">
-                            <div class="badge-ribbon">
-                                <span class="badge bg-info">Sale</span>
-                            </div>
-                            <div class="product-wishlist">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </div>
-                            <div class="product-media">
-                                <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                                </a>
-                                <div class="product-action nav justify-content-center">
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-arrow-left-right"></i>
-                                    </a>
-                                    <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-primary">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card-info">
-                            <div class="rating-star text">
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <h6 class="product-title">
-                                <a href="#">Fine-knit sweater</a>
-                            </h6>
-                            <div class="product-price">
-                                <span class="text-primary">$28.<small>50</small></span>
-                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Product Box -->
-                <!-- Product Box -->
-                <div class="col-md-6 col-lg-3 my-3">
-                    <div class="product-card-2">
-                        <div class="product-card-image">
-                            <div class="badge-ribbon">
-                                <span class="badge bg-info">Sale</span>
-                            </div>
-                            <div class="product-wishlist">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </div>
-                            <div class="product-media">
-                                <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                                </a>
-                                <div class="product-action nav justify-content-center">
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-arrow-left-right"></i>
-                                    </a>
-                                    <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-primary">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card-info">
-                            <div class="rating-star text">
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <h6 class="product-title">
-                                <a href="#">Fine-knit sweater</a>
-                            </h6>
-                            <div class="product-price">
-                                <span class="text-primary">$28.<small>50</small></span>
-                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Product Box -->
-                <!-- Product Box -->
-                <div class="col-md-6 col-lg-3 my-3">
-                    <div class="product-card-2">
-                        <div class="product-card-image">
-                            <div class="badge-ribbon">
-                                <span class="badge bg-info">Sale</span>
-                            </div>
-                            <div class="product-wishlist">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </div>
-                            <div class="product-media">
-                                <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                                </a>
-                                <div class="product-action nav justify-content-center">
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-arrow-left-right"></i>
-                                    </a>
-                                    <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-primary">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card-info">
-                            <div class="rating-star text">
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <h6 class="product-title">
-                                <a href="#">Fine-knit sweater</a>
-                            </h6>
-                            <div class="product-price">
-                                <span class="text-primary">$28.<small>50</small></span>
-                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Product Box -->
-                <!-- Product Box -->
-                <div class="col-md-6 col-lg-3 my-3">
-                    <div class="product-card-2">
-                        <div class="product-card-image">
-                            <div class="badge-ribbon">
-                                <span class="badge bg-info">Sale</span>
-                            </div>
-                            <div class="product-wishlist">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </div>
-                            <div class="product-media">
-                                <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                                </a>
-                                <div class="product-action nav justify-content-center">
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-arrow-left-right"></i>
-                                    </a>
-                                    <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-primary">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card-info">
-                            <div class="rating-star text">
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <h6 class="product-title">
-                                <a href="#">Fine-knit sweater</a>
-                            </h6>
-                            <div class="product-price">
-                                <span class="text-primary">$28.<small>50</small></span>
-                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Product Box -->
-                <!-- Product Box -->
-                <div class="col-md-6 col-lg-3 my-3">
-                    <div class="product-card-2">
-                        <div class="product-card-image">
-                            <div class="badge-ribbon">
-                                <span class="badge bg-info">Sale</span>
-                            </div>
-                            <div class="product-wishlist">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </div>
-                            <div class="product-media">
-                                <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                                </a>
-                                <div class="product-action nav justify-content-center">
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-arrow-left-right"></i>
-                                    </a>
-                                    <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-primary">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card-info">
-                            <div class="rating-star text">
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <h6 class="product-title">
-                                <a href="#">Fine-knit sweater</a>
-                            </h6>
-                            <div class="product-price">
-                                <span class="text-primary">$28.<small>50</small></span>
-                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Product Box -->
-                <!-- Product Box -->
-                <div class="col-md-6 col-lg-3 my-3">
-                    <div class="product-card-2">
-                        <div class="product-card-image">
-                            <div class="badge-ribbon">
-                                <span class="badge bg-info">Sale</span>
-                            </div>
-                            <div class="product-wishlist">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </div>
-                            <div class="product-media">
-                                <a href="#">
-                                    <img class="img-fluid" src=" {{asset('front/img/product.jpg')}} " title="" alt="">
-                                </a>
-                                <div class="product-action nav justify-content-center">
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="bi bi-arrow-left-right"></i>
-                                    </a>
-                                    <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-primary">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card-info">
-                            <div class="rating-star text">
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star-fill active"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <h6 class="product-title">
-                                <a href="#">Fine-knit sweater</a>
-                            </h6>
-                            <div class="product-price">
-                                <span class="text-primary">$28.<small>50</small></span>
-                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Product Box -->
+                    <!-- End Product Box -->
+                @empty
+                    <div class="alert alert-info text-center">@lang('No product yet.')</div>
+                @endforelse
             </div>
         </div>
     </section>

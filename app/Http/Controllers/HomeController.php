@@ -2,16 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App;
+use App\Models\Products\Category;
+use App\Models\Products\Product;
+use Illuminate\Support\Facades\App;
+
 class HomeController extends Controller
 {
     public function test(){
         return view('test');
     }
-    public function index(){
-        return view('pages.home');
+    public function index()
+    {
+        $categories = Category::orderByDesc('created_at')->get();
+        $products = Product::orderByDesc('created_at')->get();
+        
+        return view('pages.home', [
+            'categories' => $categories,
+            'products' => $products
+        ]);
     }
+
     public function shop(){
         return view('pages.shop.shop');
     }

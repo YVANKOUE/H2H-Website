@@ -106,132 +106,29 @@
                             <div class="dropdown-menu dropdown-mega-menu py-3">
                                 <div class="container">
                                     <div class="row g-3">
+                                        @forelse ($categories as $category)
                                         <div class="col-sm-6 col-md-4 col-lg-2">
                                             <div class="hover-scale position-relative mb-3">
                                                 <div class="hover-scale-in">
                                                     <a href="#">
-                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
+                                                        <img src="{{ asset($category->image) }}" title="{{ $category->name }}" alt="{{ $category->description }}">
                                                     </a>
                                                 </div>
                                                 <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
-                                                    <h5 class="m-0 h6 bg-white px-3 py-2"><a class="text-reset link-effect" href="#">Categories</a></h5>
+                                                    <h5 class="m-0 h6 bg-white px-3 py-2"><a class="text-reset link-effect" href="#">{{ $category->name }}</a></h5>
                                                 </div>
                                             </div>
                                             <ul class="list-unstyled link-style-1">
-                                                <li><a href="#">Scarf</a></li>
-                                                <li><a href="#">Shirt</a></li>
-                                                <li><a href="#">Shoes</a></li>
-                                                <li><a href="#">Shorts</a></li>
-                                                <li><a href="#">Summer</a></li>
-                                                <li><a href="#">Sunglasses</a></li>
-                                                <li><a href="#">Vintage</a></li>
+                                                @forelse ($category->subCategories as $subCategory)
+                                                    <li><a href="#">{{ $subCategory->name }}</a></li>
+                                                @empty
+                                                    <div class="alert alert-info text-center">@lang('No subcategory yet.')</div>
+                                                @endforelse
                                             </ul>
                                         </div>
-                                        <div class="col-sm-6 col-md-4 col-lg-2">
-                                            <div class="hover-scale position-relative mb-3">
-                                                <div class="hover-scale-in">
-                                                    <a href="#">
-                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
-                                                    <h5 class="m-0 h6 bg-white px-3 py-2"><a class="text-reset link-effect" href="#">Categories</a></h5>
-                                                </div>
-                                            </div>
-                                            <ul class="list-unstyled link-style-1">
-                                                <li><a href="#">Scarf</a></li>
-                                                <li><a href="#">Shirt</a></li>
-                                                <li><a href="#">Shoes</a></li>
-                                                <li><a href="#">Shorts</a></li>
-                                                <li><a href="#">Summer</a></li>
-                                                <li><a href="#">Sunglasses</a></li>
-                                                <li><a href="#">Vintage</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4 col-lg-2">
-                                            <div class="hover-scale position-relative mb-3">
-                                                <div class="hover-scale-in">
-                                                    <a href="#">
-                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
-                                                    <h5 class="m-0 h6 bg-white px-3 py-2"><a class="text-reset link-effect" href="#">Categories</a></h5>
-                                                </div>
-                                            </div>
-                                            <ul class="list-unstyled link-style-1">
-                                                <li><a href="#">Scarf</a></li>
-                                                <li><a href="#">Shirt</a></li>
-                                                <li><a href="#">Shoes</a></li>
-                                                <li><a href="#">Shorts</a></li>
-                                                <li><a href="#">Summer</a></li>
-                                                <li><a href="#">Sunglasses</a></li>
-                                                <li><a href="#">Vintage</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4 col-lg-2">
-                                            <div class="hover-scale position-relative mb-3">
-                                                <div class="hover-scale-in">
-                                                    <a href="#">
-                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
-                                                    <h5 class="m-0 h6 bg-white px-3 py-2"><a class="text-reset link-effect" href="#">Categories</a></h5>
-                                                </div>
-                                            </div>
-                                            <ul class="list-unstyled link-style-1">
-                                                <li><a href="#">Scarf</a></li>
-                                                <li><a href="#">Shirt</a></li>
-                                                <li><a href="#">Shoes</a></li>
-                                                <li><a href="#">Shorts</a></li>
-                                                <li><a href="#">Summer</a></li>
-                                                <li><a href="#">Sunglasses</a></li>
-                                                <li><a href="#">Vintage</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4 col-lg-2">
-                                            <div class="hover-scale position-relative mb-3">
-                                                <div class="hover-scale-in">
-                                                    <a href="#">
-                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
-                                                    <h5 class="m-0 h6 bg-white px-3 py-2"><a class="text-reset link-effect" href="#">Categories</a></h5>
-                                                </div>
-                                            </div>
-                                            <ul class="list-unstyled link-style-1">
-                                                <li><a href="#">Scarf</a></li>
-                                                <li><a href="#">Shirt</a></li>
-                                                <li><a href="#">Shoes</a></li>
-                                                <li><a href="#">Shorts</a></li>
-                                                <li><a href="#">Summer</a></li>
-                                                <li><a href="#">Sunglasses</a></li>
-                                                <li><a href="#">Vintage</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4 col-lg-2">
-                                            <div class="hover-scale position-relative mb-3">
-                                                <div class="hover-scale-in">
-                                                    <a href="#">
-                                                        <img src="{{asset('front/img/product.jpg')}} " title="" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="pt-2 text-center position-absolute bottom-0 start-0 mb-3">
-                                                    <h5 class="m-0 h6 bg-white px-3 py-2"><a class="text-reset link-effect" href="#">Categories</a></h5>
-                                                </div>
-                                            </div>
-                                            <ul class="list-unstyled link-style-1">
-                                                <li><a href="#">Scarf</a></li>
-                                                <li><a href="#">Shirt</a></li>
-                                                <li><a href="#">Shoes</a></li>
-                                                <li><a href="#">Shorts</a></li>
-                                                <li><a href="#">Summer</a></li>
-                                                <li><a href="#">Sunglasses</a></li>
-                                                <li><a href="#">Vintage</a></li>
-                                            </ul>
-                                        </div>
+                                        @empty
+                                            <div class="alert alert-info text-center">@lang('No category yet.')</div>
+                                        @endforelse
                                         <div class="col-12">
                                             <div class="d-flex rounded w-100 align-items-center justify-content-center mx-2 py-4 position-relative bg-cover bg-center bg-no-repeat" style="background-image: url({{asset('front/img/product.jpg')}} );">
                                                 <div class="text-center">
