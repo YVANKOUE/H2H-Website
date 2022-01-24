@@ -18,7 +18,7 @@
 <body>
     @include('includes.front.elements')
     <!-- Header -->
-    @include('includes.front.header')
+    @include('includes.front.header', ['categories' => App\Models\Products\Category::orderByDesc('created_at')->get()->take(6)])
     <!-- Header End -->
     <!-- Main -->
     @yield('content')

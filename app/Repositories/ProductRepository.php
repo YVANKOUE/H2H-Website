@@ -21,9 +21,21 @@ class ProductRepository
      * Update specified Product resource in storage
      * 
      */
-    public function updateProduct(CreateProductRequest $request, Product $product)
+    public function updateProduct(Product $product)
     {
-        $product->update($request->except(['_token', '_method']));
+        request()->validate([
+            'name' => 'required|string|unique:products,name,' . $product->id,
+            'brand' => 'required|string',
+            'sub_category_id' => 'required|exists:sub_categories,id',
+            'mini_description' => 'required|string',
+            'long_description' => 'required|string',
+            'price' => 'required|numeric',
+            'available' => 'required|boolean',
+            'colors.*' => 'required|exists:colors,id',
+            'sizes.*' => 'required|exists:sizes,id',
+            'images.*' => 'required|image|mimes:png,jpg,svg,jpeg,gif|max:2000'
+        ]);
+        $product->update(request()->except(['_token', '_method']));
         $this->setProductExtra($product);
     }
 

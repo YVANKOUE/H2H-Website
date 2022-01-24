@@ -16,12 +16,7 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
 |
 */
 
-
-
-    Route::get('/', function () {
-        return view('pages.home');
-    });
-    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
     
     Route::get('lang/{locale}', [HomeController::class, 'lang'])->name('langue');
 

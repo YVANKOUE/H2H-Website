@@ -7,8 +7,8 @@
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
         <a class="row mx-3" href="{{ route('dashboard') }}"> 
-          <span class="my-3 mr-2"><img alt="image" src="{{ asset('assets/img/logo01.png') }}" class="header-logo" /></span> 
-          <span class="logo-name">Hand2Hand</span>
+          <span class="my-3 mr-2"><img alt="image" src="{{ asset('front/img/logo.png') }}" class="header-logo" /></span> 
+          {{-- <span class="logo-name">Hand2Hand</span> --}}
         </a>
       </div>
       <ul class="sidebar-menu">
