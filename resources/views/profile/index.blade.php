@@ -54,7 +54,7 @@
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#settings" role="tab"
-                                aria-selected="false">@lang('Change Pasword')</a>
+                                aria-selected="false">@lang('Change Password')</a>
                             </li>
                         </ul>
                         <div class="tab-content tab-bordered" id="myTab3Content">
