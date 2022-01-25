@@ -54,7 +54,7 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
     Route::view('/privacy_policy', 'pages.privacy_policy')->name('privacy_policy');
     Route::view('/terms_conditions', 'pages.terms_conditions')->name('terms_conditions');
 
-    Route::get('/test', [HomeController::class, 'test'])->name('test');
+    //Route::get('/test', [HomeController::class, 'test'])->name('test');
 
     require __DIR__.'/auth.php';
 
