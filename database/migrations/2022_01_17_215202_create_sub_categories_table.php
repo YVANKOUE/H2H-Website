@@ -19,7 +19,7 @@ class CreateSubCategoriesTable extends Migration
             $table->string('name')->unique();
             $table->string('slug');
             $table->mediumText('description');
-            $table->string('image')->default('sub-category-default.png');
+            $table->string('image')->default('sub-category-default.jpg');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -22,7 +22,7 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        $name = ucfirst($this->faker->word);
+        $name = ucfirst($this->faker->unique()->word);
         return [
             'sub_category_id' => $this->faker->numberBetween(1, 50),
             'name' => $name,

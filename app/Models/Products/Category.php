@@ -44,4 +44,14 @@ class Category extends Model
     {
         return $this->hasMany(SubCategory::class);
     }
+
+    // Event for deleting related subCategories for specified category
+    protected static function booted()
+    {
+        static::deleted(function ($category) {
+            foreach ($category->subCategories as $sub_category) {
+                $sub_category->delete();
+            }
+        });
+    }
 }

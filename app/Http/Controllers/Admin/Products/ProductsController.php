@@ -86,9 +86,9 @@ class ProductsController extends Controller
      * @param  \App\Models\Products\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateProductRequest $request, ProductRepository $productRepository, Product $product)
+    public function update(ProductRepository $productRepository, Product $product)
     {
-        $productRepository->updateProduct($request, $product);
+        $productRepository->updateProduct($product);
 
         Alert::toast(trans('Product has been successfully updated.'), 'success');
         return redirect()->route('admin.products.index');

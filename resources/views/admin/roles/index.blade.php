@@ -28,13 +28,13 @@
                         <th>#</th>
                         <th>@lang('Name')</th>
                         <th>@lang('Permissions')</th>
-                        <th>Action</th>
+                        <th>@lang('Action')</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach ($roles as $role)   
                       <tr>
-                        <td>{{ $role->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $role->name }}</td>
                         <td>
                             @foreach($role->permissions()->pluck('name') as $permission)
@@ -43,7 +43,7 @@
                         </td>
                         <td>
                             <a href="{{ route('admin.roles.edit', ['role' => $role->id]) }}"
-                                class="btn btn-sm btn-primary btn-icon mr-2" title="Edit details">
+                                class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit details')">
                                 <span class="fas fa-pen"> </span> 
                             </a>
                             <form method="POST" style="display: inline-block"
@@ -52,7 +52,10 @@
                                 @method("DELETE")
                                 @csrf
 
-                                <button class="btn btn-sm btn-danger btn-icon delete"> <span class="fas fa-trash">  </span>  </button>
+                                <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')"
+                                  onclick="return confirm('@lang('Are you sure you want to delete :attribute?', ['attribute'=>$role->name])');"> 
+                                  <span class="fas fa-trash"></span>
+                                </button>
                             </form>
                         </td>
                       </tr>            

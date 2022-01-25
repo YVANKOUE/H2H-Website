@@ -25,12 +25,7 @@ class CreateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => [
-                'required', 
-                'string', 
-                Rule::when(request()->isMethod('POST'), ['unique:products,name']),
-                Rule::when(request()->isMethod('PATCH'), ['unique:products,name,' . $this->product->id])
-            ],
+            'name' => ['required', 'string', 'unique:products,name'],
             'brand' => 'required|string',
             'sub_category_id' => 'required|exists:sub_categories,id',
             'mini_description' => 'required|string',

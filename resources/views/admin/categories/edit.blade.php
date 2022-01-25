@@ -20,7 +20,7 @@
                                 <a href="{{ route('admin.categories.index') }}" class="text-muted">@lang('Categories')</a>
                             </li>
                             <li class="breadcrumb-item text-muted">
-                                <span class="text-muted">@lang('Edit category')</span>
+                                <span class="text-muted">@lang('Category edition')</span>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->

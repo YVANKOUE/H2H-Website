@@ -22,7 +22,7 @@ class SubCategoryFactory extends Factory
      */
     public function definition()
     {
-        $name = ucfirst($this->faker->sentence(2));
+        $name = ucfirst($this->faker->unique()->sentence(2));
         return [
             'category_id' => $this->faker->numberBetween(1, 25),
             'name' => $name,

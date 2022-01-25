@@ -54,7 +54,7 @@
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#settings" role="tab"
-                                aria-selected="false">@lang('Change Pasword')</a>
+                                aria-selected="false">@lang('Change Password')</a>
                             </li>
                         </ul>
                         <div class="tab-content tab-bordered" id="myTab3Content">
@@ -101,33 +101,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-        
-    <script>
-        function showPassword() {
-            var x = document.getElementById("password");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-        }
-        function showConfirmPassword() {
-            var x = document.getElementById("password_confirmation");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-        }
-        function showCurrentPassword() {
-            var x = document.getElementById("current_password");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-        }
-    </script>
-@endpush
