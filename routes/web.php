@@ -22,7 +22,7 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
 
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->middleware(['auth'])->name('dashboard');
+    })->middleware(['auth', 'can:users_manage'])->name('dashboard');
 
     Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
         
