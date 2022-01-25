@@ -11,7 +11,7 @@
                 <div class="card author-box">
                     <div class="card-body">
                         <div class="author-box-center">
-                            <img alt="image"  src="{{ asset('users/images/'. $user->avatar) }}" class="rounded-circle author-box-picture" style="display: inline;">
+                            <img alt="image"  src="{{ auth()->user()->avatar }}" class="rounded-circle author-box-picture" style="display: inline;">
                             <div class="clearfix"></div>
                             <div class="author-box-name">
                                 <span class="badge badge-success">{{ $user->name }} {{ $user->last_name }}</span>
