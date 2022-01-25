@@ -18,10 +18,8 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
 
 
 
-    Route::get('/', function () {
-        return view('pages.home');
-    });
-    Route::get('home', [HomeController::class, 'index'])->name('home');
+   
+    Route::get('/', [HomeController::class, 'index'])->name('home');
     
     Route::get('lang/{locale}', [HomeController::class, 'lang'])->name('langue');
 
@@ -53,7 +51,6 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
             Route::patch('products/{product}/available', [ProductsController::class, 'available'])->name('products.available');
         });
     });
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
     Route::get('/shop_detail', [HomeController::class, 'shop_detail'])->name('shop_detail');
     Route::view('/about', 'pages.about')->name('about');

@@ -1,12 +1,12 @@
 <?php $r = \Route::current()->getAction() ?>
 <?php $route = (isset($r['as'])) ? $r['as'] : ''; ?>
 @if($route == 'home') <div></div>
-@else<div class="header-height-bar" style="min-height: 115.125px !important;"></div>@endif
+@else<div class="header-height-bar" style="min-height: 115.125px;"></div>@endif
 
 
 <header class="header-main header-dark fixed-top header-fluid header-transparent">
         <!-- Top Header -->
-        <div class="header-top header-border-bottom small @if($route == 'home') rien @else bg-black @endif ">
+        <div class="header-top header-border-bottom small @if($route == 'home') "" @else bg-black @endif ">
             <div class="container-fluid">
                 <div class="d-flex justify-content-between align-items-center">
                     <!-- Left -->
@@ -165,8 +165,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end mt-2 shadow" aria-labelledby="dropdown_myaccount">
                             <a class="dropdown-item" href=" {{route('login')}} ">@lang('Log in')</a>
-                            <a class="dropdown-item" href=" {{route('register')}} ">@lang('Register')</a>
-                            <a class="dropdown-item" href="my-account.html">@lang('My account')</a>
+                            <a class="dropdown-item" href="#">@lang('My account')</a>
                         </div>
                     </div>
                     <!-- Wishlist -->
@@ -191,4 +190,4 @@
                 </div>
             </div>
         </nav>
-    </header>
+   </header>

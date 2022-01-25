@@ -18,7 +18,9 @@
 <body>
     @include('includes.front.elements')
     <!-- Header -->
-    @include('includes.front.header')
+    @include('includes.front.header',[
+        'categories' => App\Models\Products\Category::orderByDesc('created_at')->get(),
+    ])
     <!-- Header End -->
     <!-- Main -->
     @yield('content')
@@ -30,6 +32,10 @@
     
     <!-- End Footer -->
     <!-- jquery -->
+    <script>
+        // document.getElementsByClassName('header-height-bar')[0].style.display = 'none';
+       
+    </script>
     <script src="{{asset('front/js/jquery-3.5.1.min.js')}}"></script>
     <!-- appear -->
     <script src="{{asset('front/vendor/appear/jquery.appear.js')}}"></script>
