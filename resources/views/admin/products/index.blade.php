@@ -54,11 +54,14 @@
                                                     <span class="fas fa-pen"></span> 
                                                 </a>
                                                 <form method="POST" action="{{ route('admin.products.destroy', $product->slug) }}"
-                                                    accept-charset="UTF-8" title="@lang('Delete')" class="delete d-inline mr-2">
+                                                    accept-charset="UTF-8" class="delete d-inline mr-2">
                                                     @method('DELETE')
                                                     @csrf
 
-                                                    <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')"><span class="fas fa-trash"></span></button>
+                                                    <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')"
+                                                        onclick="return confirm('@lang('Are you sure you want to delete :attribute?', ['attribute'=>$product->name])');">
+                                                        <span class="fas fa-trash"></span>
+                                                    </button>
                                                 </form>
                                                 </a>
                                                 {{-- <form method="POST" action="{{ route('admin.products.available', $product->slug) }}" accept-charset="UTF-8" class="delete d-inline">

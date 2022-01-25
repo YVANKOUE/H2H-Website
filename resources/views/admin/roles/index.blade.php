@@ -34,7 +34,7 @@
                   <tbody>
                     @foreach ($roles as $role)   
                       <tr>
-                        <td>{{ $role->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $role->name }}</td>
                         <td>
                             @foreach($role->permissions()->pluck('name') as $permission)
@@ -48,11 +48,14 @@
                             </a>
                             <form method="POST" style="display: inline-block"
                                 action="{{ route('admin.roles.destroy', ['role' => $role->id]) }}"
-                                accept-charset="UTF-8" title="@lang('Delete')" class="delete">
+                                accept-charset="UTF-8" class="delete">
                                 @method("DELETE")
                                 @csrf
 
-                                <button class="btn btn-sm btn-danger btn-icon delete"> <span class="fas fa-trash">  </span>  </button>
+                                <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')"
+                                  onclick="return confirm('@lang('Are you sure you want to delete :attribute?', ['attribute'=>$role->name])');"> 
+                                  <span class="fas fa-trash"></span>
+                                </button>
                             </form>
                         </td>
                       </tr>            
