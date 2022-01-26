@@ -16,11 +16,11 @@
                         </div>
                     @endif
                     <div class="card-header">
-                        <div class="justify-content-start">
+                        <div class="col-md-9">
                             <h4>@lang('Subcategories list')</h4>
                         </div>
-                        <div class="justify-content-end">
-                            <button type="button" class="btn btn-{{ $errors->any() ? 'danger' : 'primary' }}" data-toggle="modal" data-target="#addSubCategoryModal"><span class="fas fa-plus"></span></button>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-{{ $errors->any() ? 'danger' : 'primary' }}" data-toggle="modal" data-target="#addSubCategoryModal">@lang('New subcategory')</button>
                         </div>
                     </div>
                     <div class="card-body">
