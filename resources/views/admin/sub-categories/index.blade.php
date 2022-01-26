@@ -42,7 +42,7 @@
                                             <td>{{ $subCategory->name }}</td>
                                             <td>{{ $subCategory->category->name }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $subCategory->description }}">...</button>
+                                                <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $subCategory->description }}" data-trigger="focus">...</button>
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.sub-categories.edit', $subCategory->slug) }}"

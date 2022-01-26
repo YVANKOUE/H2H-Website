@@ -49,7 +49,7 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, OffersController,
             Route::patch('products/{product}/available', [ProductsController::class, 'available'])->name('products.available');
 
             // Offers
-            Route::resource('offers', OffersController::class)->except('create', 'show');
+            Route::resource('offers', OffersController::class)->except('show');
         });
     });
     Route::get('/shop', [HomeController::class, 'shop'])->name('shop');

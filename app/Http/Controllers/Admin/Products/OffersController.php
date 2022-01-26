@@ -26,6 +26,18 @@ class OffersController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.offers.create', [
+            'products' => Product::all()
+        ]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -39,7 +51,7 @@ class OffersController extends Controller
         }
 
         Alert::toast(trans('Offer has been successfully added.'), 'success');
-        return back();
+        return redirect()->route('admin.offers.index');
     }
 
     /**

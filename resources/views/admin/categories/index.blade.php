@@ -40,7 +40,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $category->name }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $category->description }}">...</button>
+                                                <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $category->description }}" data-trigger="focus">...</button>
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.categories.edit', $category->slug) }}"

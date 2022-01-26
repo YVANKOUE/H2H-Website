@@ -81,8 +81,8 @@
           </li>
 
           {{-- Offers Management --}}
-          <li class="dropdown @if(Str::startsWith($route, 'admin.offers.settings'))active @endif">
-            <a href="{{ route('admin.offers.index') }}" class="nav-link"><i data-feather="aperture"></i><span>@lang('offers')</span></a>
+          <li class="dropdown @if(Str::startsWith($route, 'admin.offers'))active @endif">
+            <a href="{{ route('admin.offers.index') }}" class="nav-link"><i data-feather="aperture"></i><span>@lang('Offers')</span></a>
           </li>
         @endcan
 

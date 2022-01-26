@@ -30,9 +30,9 @@
                                         <th>@lang('Name')</th>
                                         <th>@lang('Brand')</th>
                                         <th>@lang('Price') (€)</th>
-                                        {{-- <th>@lang('Category')</th> --}}
                                         <th>@lang('Subcategory')</th>
                                         <th>@lang('Availability')</th>
+                                        <th>@lang('Descriptions')</th>
                                         <th>@lang('Action')</th>
                                     </tr>
                                 </thead>
@@ -43,12 +43,14 @@
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->brand }}</td>
                                             <td>{{ $product->price }}</td>
-                                            {{-- <td>{{ $product->subCategory->category->name }}</td> --}}
                                             <td>{{ $product->subCategory->name }}</td>
                                             <td>
                                                 <p title="{{ $product->available ? trans('Available') : trans('Unavailable') }}">
                                                     <i class="text-{{ $product->available ? 'success' : 'danger' }}" data-feather="{{ $product->available ? 'check' : 'alert-triangle' }}"></i>
                                                 </p>
+                                            </td>
+                                            <td>
+                                                <button type="button" title="{{ $product->mini_description }}" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $product->long_description }}" data-trigger="focus">...</button>
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.products.edit', $product->slug) }}" class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit details')">

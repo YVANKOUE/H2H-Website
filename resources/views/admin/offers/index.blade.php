@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('title')
-    {{ config('app.name') }} | @lang('Categories')
+    {{ config('app.name') }} | @lang('Offers')
 @endsection
 
 @section('content')
@@ -10,17 +10,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    @if($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-                            <strong>@lang('Something has failed! Check the modal again to see what exactly.')</strong>
-                        </div>
-                    @endif
                     <div class="card-header">
                         <div class="col-md-9">
                             <h4>@lang('Offer list')</h4>
                         </div>
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-{{ $errors->any() ? 'danger' : 'primary' }}" data-toggle="modal" data-target="#addOfferModal">@lang('New Offer')</span></button>
+                            <a href="{{ route('admin.offers.create') }}" class="btn btn-primary">@lang('New Offer')</span></a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -31,20 +26,26 @@
                                         <tr>
                                             <th>#</th>
                                             <th>@lang('Name')</th>
-                                            <th>@lang('From')</th>
-                                            <th>@lang('To')</th>
+                                            <th>@lang('Begins at')</th>
+                                            <th>@lang('Ends at')</th>
                                             <th>@lang('Discount')</th>
+                                            <th>@lang('Products')</th>
                                             <th>@lang('Action')</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($offers as $offer)   
+                                        @foreach ($offers as $offer)   
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $offer->name }}</td>
+                                                <td>{{ $offer->from }}</td>
+                                                <td>{{ $offer->to }}</td>
+                                                <td>{{ $offer->discount }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.offers.edit', $offer->slug) }}"
-                                                        class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit')">
+                                                    <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ implode(', ', $offer->products->pluck('name')->toArray()) }}" title="{{  $offer->products->count() }} @lang('Products')" data-trigger="focus">{{ $offer->products->count() }}</button>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('admin.offers.edit', $offer->slug) }}" class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit')">
                                                         <span class="fas fa-pen"> </span> 
                                                     </a>
                                                     <form method="POST" style="display: inline-block"
@@ -59,7 +60,7 @@
                                                     </form>
                                                 </td>
                                             </tr>            
-                                        @endforeach --}}
+                                        @endforeach
                                     </tbody>
                                 </table>
                             @else
@@ -93,6 +94,4 @@
             });
         </script>
     @endpush
-
-    @include('admin.offers.modal')
 @endsection
