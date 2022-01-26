@@ -1,15 +1,15 @@
-<div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="addOfferModal" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">@lang('Add new category')</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">@lang('Add new offer')</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.categories.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.offers.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <!--begin::Name-->
@@ -27,35 +27,48 @@
                     </div>
                     <!--end::Name-->
 
-                    <!--begin::Description-->
+                    <!--begin::Begins at-->
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">@lang('Description')<sup class="text-danger">*</sup></label>
+                        <label class="col-sm-2 col-form-label">@lang('Begins at')<sup class="text-danger">*</sup></label>
                         <div class="col-lg-10 col-xl-10 col-sm-10">
                             <div class="input-group input-group-solid input-group-lg">
-                                <textarea class="form-control form-control-solid @error('description') is-invalid @enderror" 
-                                    name="description" id="description" cols="30" rows="5" placeholder="@lang('Description')" required>{{old('description')}}</textarea>
+                                <input type="text" name="from" id="from" class="form-control datepicker @error('from') is-invalid @enderror" required>
                             </div>
-                            @error('description')
+                            @error('from')
                                 <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                             @enderror
                         </div>
                     </div>
-                    <!--end::Description-->
+                    <!--end::Begins at-->
 
-                    <!--begin::Image-->
+                    <!--begin::Ends at-->
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">@lang('Image')</label>
+                        <label class="col-sm-2 col-form-label">@lang('Ends at')<sup class="text-danger">*</sup></label>
                         <div class="col-lg-10 col-xl-10 col-sm-10">
                             <div class="input-group input-group-solid input-group-lg">
-                                <input type="file" class="form-control form-control-solid @error('image') is-invalid @enderror" 
-                                    value="{{ old('image') }}" name="image" id="image">
+                                <input type="text" name="to" id="to" class="form-control datepicker @error('to') is-invalid @enderror" required>
                             </div>
-                            @error('image')
+                            @error('to')
                                 <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
                             @enderror
                         </div>
                     </div>
-                    <!--end::Image-->
+                    <!--end::Ends at-->
+
+                    <!--begin::Discount-->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">@lang('Discount')<sup class="text-danger">*</sup></label>
+                        <div class="col-lg-10 col-xl-10 col-sm-10">
+                            <div class="input-group input-group-solid input-group-lg">
+                                <input type="number" class="form-control form-control-solid @error('discount') is-invalid @enderror" name="discount" 
+                                    id="discount" min="1" placeholder="...%" value="{{ old('discount') }}" required/>
+                            </div>
+                            @error('discount')
+                                <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+                    </div>
+                    <!--end::Discount-->
 
                     <div class="modal-footer bg-whitesmoke br">
                         <button type="submit" class="btn btn-primary">@lang('Submit')</button>

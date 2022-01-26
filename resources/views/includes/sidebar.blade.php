@@ -71,12 +71,18 @@
             </ul>
           </li>
 
+          {{-- Products Management --}}
           <li class="dropdown @if(Str::startsWith($route, 'admin.products.index'))active @endif">
             <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="shopping-bag"></i><span>@lang('Products')</span></a>
             <ul class="dropdown-menu">
               <li><a href="{{ route('admin.products.index') }}">@lang('List')</a></li>
               <li><a href="{{ route('admin.products.create') }}">@lang('Add')</a></li>
             </ul>
+          </li>
+
+          {{-- Offers Management --}}
+          <li class="dropdown @if(Str::startsWith($route, 'admin.offers.settings'))active @endif">
+            <a href="{{ route('admin.offers.index') }}" class="nav-link"><i data-feather="aperture"></i><span>@lang('offers')</span></a>
           </li>
         @endcan
 
