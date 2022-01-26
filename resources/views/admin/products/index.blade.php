@@ -11,12 +11,13 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="justify-content-start">
+                        <div class="col-md-9">
                             <h4>@lang('Products list')</h4>
                         </div>
-                        <div class="justify-content-end">
+                        <div class="col-md-3">
                             <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
-                                <span class="fas fa-plus"></span>
+                                {{-- <span class="fas fa-plus"></span> --}}
+                                @lang('New product')
                             </a>
                         </div>
                     </div>
