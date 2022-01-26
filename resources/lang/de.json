@@ -162,7 +162,7 @@
     "Product has been successfully updated.": "Produkt wurde erfolgreich aktualisiert.",
     "Product has been successfully removed.": "Produkt wurde erfolgreich entfernt.",
     "Product's status has been successfully updated.": "Der Status des Produkts wurde erfolgreich aktualisiert.",
-    "Subcategory has been successfully added.": "Unterkategorie wurde erfolgreich hinzugefügt.",
+    "Subcategory has been successfully added.": "Die Unterkategorie wurde erfolgreich hinzugefügt.",
     "Subcategory has been successfully updated.": "Die Unterkategorie wurde erfolgreich aktualisiert.",
     "Subcategory has been successfully removed.": "Die Unterkategorie wurde erfolgreich entfernt.",
     "Subcategories":"Unterkategorien",
@@ -201,6 +201,9 @@
     "Color added...":"Farbe hinzugefügt...",
     "Size added...":"Größe hinzugefügt...",
     "Product's images":"Bilder des Produkts",
+    "Users and access":"Benutzer und Zugang",
+    "Colors and sizes":"Farben und Größen",
+
     
     "User has been successfully added." : "Der Benutzer wurde erfolgreich hinzugefügt.",
     "User has been successfully updated.": "Der Benutzer wurde erfolgreich aktualisiert.",

@@ -231,9 +231,9 @@
     "Product has been successfully updated.": "Le produit a été mis à jour avec succès.",
     "Product has been successfully removed.": "Le produit a été supprimé avec succès.",
     "Product's status has been successfully updated.": "Le statut du produit a été mis à jour avec succès.",
-    "Subcategory has been successfully added.": "Le produit a été ajouté avec succès.",
-    "Subcategory has been successfully updated.": "Le produit a été mis à jour avec succès.",
-    "Subcategory has been successfully removed.": "Le produit a été supprimé avec succès.",
+    "Subcategory has been successfully added.": "La sous-catégorie a été ajoutée avec succès.",
+    "Subcategory has been successfully updated.": "La sous-catégorie a été mise à jour avec succès.",
+    "Subcategory has been successfully removed.": "La sous-catégorie a été supprimée avec succès.",
     "Something has failed! Check the form again to see what exactly.": "Quelque chose a échoué ! Vérifiez à nouveau le formulaire pour voir ce qui s'est passé.",
     "Subcategories":"Sous-catégories",
     "Subcategories list":"Liste des sous-catégories",
@@ -268,6 +268,8 @@
     "Color added...":"Couleur ajoutée...",
     "Size added...":"Taille ajoutée...",
     "Product's images":"Images du produit",
+    "Users and access":"Utilisateurs et accès",
+    "Colors and sizes":"Couleurs et tailles",
     "":""
     
 }
