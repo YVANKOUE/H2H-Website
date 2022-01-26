@@ -58,8 +58,7 @@
                                                     @method('DELETE')
                                                     @csrf
 
-                                                    <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')"
-                                                        onclick="return confirm('@lang('Are you sure you want to delete :attribute?', ['attribute'=>$product->name])');">
+                                                    <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')">
                                                         <span class="fas fa-trash"></span>
                                                     </button>
                                                 </form>
@@ -81,4 +80,26 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
+        <script type="text/javascript">
+            $('.delete').click(function(event) {
+                var form =  $(this).closest("form");
+                event.preventDefault();
+                swal({
+                    title: "{{ trans('Are you sure you want to delete this record ?') }}",
+                    icon: "warning",
+                    buttons: ["{{ trans('Cancel') }}", "{{ trans('Confirm') }}"],
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                    form.submit();
+                    }
+                });
+            });
+        </script>
+    @endpush
 @endsection

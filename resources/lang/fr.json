@@ -31,7 +31,7 @@
     "Edit category": "Modifier une catégorie",
     "Categories": "Catégories",
     "Categories Management": "Gestion des catégories",
-    "Confirm": "Confirmez",
+    "Confirm": "Confirmer",
     "Confirm a new password": "Confirmez le nouveau mot de passe",
     "Confirm Password": "Confirmez le mot de passe",
     "Create": "Créer",
@@ -270,6 +270,10 @@
     "Product's images":"Images du produit",
     "Users and access":"Utilisateurs et accès",
     "Colors and sizes":"Couleurs et tailles",
+    "Are you sure you want to delete this record ?":"Etes-vous sûr de vouloir supprimer cet élément ?",
+    "If you delete this, it will also delete all the related records (subcategories and products).":"Si vous supprimez cet élément, cela supprimera également tous ceux qui lui sont associés (sous-catégories et produits).",
+    "If you delete this, it will also delete all the related products.":"Si vous supprimez cet élément, cela supprimera également tous les produits associés.",
+    "Cancel":"Annuler",
     "":""
     
 }
