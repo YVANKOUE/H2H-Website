@@ -35,9 +35,9 @@
 
             <div class="dropdown-menu dropdown-menu-right pullDown">
                   <div class="dropdown-item has-icon">
-                    <a rel="alternate" href="{{route('langue',['locale' => 'de'])}}">@lang('German')</a> <br>
+                    <a rel="alternate" href="{{route('langue',['locale' => 'de'])}}">@lang('Deutsch')</a> <br>
                     <a rel="alternate" href="{{route('langue',['locale' => 'en'])}}">@lang('English')</a> <br>
-                    <a rel="alternate"  href="{{route('langue',['locale' => 'fr'])}}">@lang('French')</a>
+                    <a rel="alternate"  href="{{route('langue',['locale' => 'fr'])}}">@lang('Français')</a>
                   </div>
                 
             </div>
@@ -79,11 +79,11 @@
                 <a href="{{ route('admin.profil') }}" class="dropdown-item has-icon"> 
                     <i class="far fa-user"></i> @lang('Profile')
                 </a> 
-                <a href="#" class="dropdown-item has-icon"> 
+                {{-- <a href="#" class="dropdown-item has-icon"> 
                     <i class="fas fa-bolt"></i> @lang('Activities')
-                </a> 
+                </a>  --}}
                 <a href="/" class="dropdown-item has-icon"> 
-                    <i class="fas fa-cog"></i> @lang('Home')
+                  <i class="fas fa-home"></i> @lang('Home')
                 </a>
                 <div class="dropdown-divider"></div>
                 <!-- Authentication -->

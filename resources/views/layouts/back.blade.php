@@ -55,6 +55,7 @@
 
         <!-- General JS Scripts -->
         <script src="{{ asset('assets/js/app.min.js') }}"></script>
+        <script src="{{ asset('assets/js/show_password.js') }}"></script>
 
         <!-- JS Libraies -->
         <script src="{{ asset('assets/bundles/apexcharts/apexcharts.min.js') }}"></script>
