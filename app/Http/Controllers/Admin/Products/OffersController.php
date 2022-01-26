@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\Products;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateOfferRequest;
+use App\Http\Requests\UpdateOfferRequest;
 use App\Models\Products\Offer;
 use App\Models\Products\Product;
 use Illuminate\Http\Request;
@@ -17,11 +19,9 @@ class OffersController extends Controller
      */
     public function index()
     {
-        $products_in_offer = [];
-        $products = collect();
         return view('admin.offers.index', [
             'offers' => Offer::orderByDesc('created_at')->get(),
-            'products' => $products,
+            'products' => Product::all(),
         ]);
     }
 
@@ -31,9 +31,15 @@ class OffersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateOfferRequest $createOfferRequest)
     {
-        //
+        $offer = Offer::create($createOfferRequest->validated());
+        foreach ($createOfferRequest->products as $product) {
+            $offer->products()->attach($product);
+        }
+
+        Alert::toast(trans('Offer has been successfully added.'), 'success');
+        return back();
     }
 
     /**
@@ -47,20 +53,22 @@ class OffersController extends Controller
         $products = '';
         return view('admin.offers.edit', [
             'offer' => $offer,
-            'products' => $products,
+            'products' => Product::all(),
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Products\Offer  $offer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Offer $offer)
+    public function update(UpdateOfferRequest $updateOfferRequest, Offer $offer)
     {
-        Alert::toast(trans('Offer has been successfully added.'), 'success');
+        $offer->update($updateOfferRequest->validated());
+        $offer->products()->sync($updateOfferRequest->products);
+
+        Alert::toast(trans('Offer has been successfully updated.'), 'success');
         return redirect()->route('admin.offers.index');
     }
 

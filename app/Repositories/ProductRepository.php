@@ -13,7 +13,7 @@ class ProductRepository
      */
     public function saveProduct(CreateProductRequest $request)
     {
-        $product = Product::create($request->except(['_token', '_method']));
+        $product = Product::create($request->validated());
         $this->setProductExtra($product);
     }
 
