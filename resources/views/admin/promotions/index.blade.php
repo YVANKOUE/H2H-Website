@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('title')
-    {{ config('app.name') }} | @lang('Products')
+    {{ config('app.name') }} | @lang('Categories')
 @endsection
 
 @section('content')
@@ -10,15 +10,17 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    @if($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                            <strong>@lang('Something has failed! Check the modal again to see what exactly.')</strong>
+                        </div>
+                    @endif
                     <div class="card-header">
                         <div class="col-md-9">
-                            <h4>@lang('Products list')</h4>
+                            <h4>@lang('Categories list')</h4>
                         </div>
                         <div class="col-md-3">
-                            <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
-                                {{-- <span class="fas fa-plus"></span> --}}
-                                @lang('New product')
-                            </a>
+                            <button type="button" class="btn btn-{{ $errors->any() ? 'danger' : 'primary' }}" data-toggle="modal" data-target="#addCategoryModal">@lang('New category')</span></button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -28,48 +30,33 @@
                                     <tr>
                                         <th>#</th>
                                         <th>@lang('Name')</th>
-                                        <th>@lang('Brand')</th>
-                                        <th>@lang('Price') (€)</th>
-                                        {{-- <th>@lang('Category')</th> --}}
-                                        <th>@lang('Subcategory')</th>
-                                        <th>@lang('Availability')</th>
+                                        <th>@lang('Description')</th>
                                         <th>@lang('Action')</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($products as $product)   
+                                    @foreach ($categories as $category)   
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $product->name }}</td>
-                                            <td>{{ $product->brand }}</td>
-                                            <td>{{ $product->price }}</td>
-                                            {{-- <td>{{ $product->subCategory->category->name }}</td> --}}
-                                            <td>{{ $product->subCategory->name }}</td>
+                                            <td>{{ $category->name }}</td>
                                             <td>
-                                                <p title="{{ $product->available ? trans('Available') : trans('Unavailable') }}">
-                                                    <i class="text-{{ $product->available ? 'success' : 'danger' }}" data-feather="{{ $product->available ? 'check' : 'alert-triangle' }}"></i>
-                                                </p>
+                                                <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $category->description }}">...</button>
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.products.edit', $product->slug) }}" class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit details')">
-                                                    <span class="fas fa-pen"></span> 
+                                                <a href="{{ route('admin.categories.edit', $category->slug) }}"
+                                                    class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit')">
+                                                    <span class="fas fa-pen"> </span> 
                                                 </a>
-                                                <form method="POST" action="{{ route('admin.products.destroy', $product->slug) }}"
-                                                    accept-charset="UTF-8" class="delete d-inline mr-2">
-                                                    @method('DELETE')
+                                                <form method="POST" style="display: inline-block"
+                                                    action="{{ route('admin.categories.destroy', $category->slug) }}"
+                                                    accept-charset="UTF-8" class="delete">
+                                                    @method("DELETE")
                                                     @csrf
 
                                                     <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')">
                                                         <span class="fas fa-trash"></span>
                                                     </button>
                                                 </form>
-                                                </a>
-                                                {{-- <form method="POST" action="{{ route('admin.products.available', $product->slug) }}" accept-charset="UTF-8" class="delete d-inline">
-                                                    @method('PATCH')
-                                                    @csrf
-
-                                                    <button class="btn btn-sm btn-{{ $product->available ? 'success' : 'danger' }} btn-icon" title="@lang('Set availability')"><span class="fa fa-refresh"></span></button>
-                                                </form> --}}
                                             </td>
                                         </tr>            
                                     @endforeach
@@ -91,6 +78,7 @@
                 event.preventDefault();
                 swal({
                     title: "{{ trans('Are you sure you want to delete this record ?') }}",
+                    text: "{{ trans('If you delete this, it will also delete all the related records (subcategories and products).') }}",
                     icon: "warning",
                     buttons: ["{{ trans('Cancel') }}", "{{ trans('Confirm') }}"],
                     dangerMode: true,
@@ -103,4 +91,6 @@
             });
         </script>
     @endpush
+
+    @include('admin.categories.modal')
 @endsection
