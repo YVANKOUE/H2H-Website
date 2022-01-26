@@ -16,7 +16,7 @@
                         <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('Products Management')</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
-                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm" style="margin-right: 15px">
                             <li class="breadcrumb-item text-muted">
                                 <a href="{{ route('admin.products.index') }}" class="text-muted">@lang('Products')</a>
                             </li>
@@ -25,6 +25,10 @@
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicColorsModal">@lang('All colors')</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicColorsModal">@lang('All sizes')</button>
                     </div>
                 </div>
 

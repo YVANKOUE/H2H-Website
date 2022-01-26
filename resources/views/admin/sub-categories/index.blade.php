@@ -16,11 +16,11 @@
                         </div>
                     @endif
                     <div class="card-header">
-                        <div class="justify-content-start">
+                        <div class="col-md-9">
                             <h4>@lang('Subcategories list')</h4>
                         </div>
-                        <div class="justify-content-end">
-                            <button type="button" class="btn btn-{{ $errors->any() ? 'danger' : 'primary' }}" data-toggle="modal" data-target="#addSubCategoryModal"><span class="fas fa-plus"></span></button>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-{{ $errors->any() ? 'danger' : 'primary' }}" data-toggle="modal" data-target="#addSubCategoryModal">@lang('New subcategory')</button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -55,8 +55,7 @@
                                                     @method("DELETE")
                                                     @csrf
 
-                                                    <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')" 
-                                                        onclick="return confirm('@lang('Are you sure you want to delete :attribute?', ['attribute'=>$subCategory->name])');">
+                                                    <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')">
                                                         <span class="fas fa-trash"></span>
                                                     </button>
                                                 </form>
@@ -84,6 +83,27 @@
                     $('div.alert').remove();
                 }, 6000);
             }); 
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
+        <script type="text/javascript">
+            $('.delete').click(function(event) {
+                var form =  $(this).closest("form");
+                event.preventDefault();
+                swal({
+                    title: "{{ trans('Are you sure you want to delete this record ?') }}",
+                    text: "{{ trans('If you delete this, it will also delete all the related products.') }}",
+                    icon: "warning",
+                    buttons: ["{{ trans('Cancel') }}", "{{ trans('Confirm') }}"],
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                    form.submit();
+                    }
+                });
+            });
         </script>
     @endpush
 

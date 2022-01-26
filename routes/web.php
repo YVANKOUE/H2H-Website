@@ -22,8 +22,8 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
 
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->middleware(['auth'])->name('dashboard');
-
+    })->middleware(['auth', 'can:users_manage'])->name('dashboard');
+    
     Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
         
         //route du profil
@@ -38,12 +38,13 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
             Route::resource('permissions', PermissionsController::class);
             //route des roles
             Route::resource('roles', RolesController::class);
-
+            
             // Categories
             Route::resource('categories', CategoriesController::class)->except('create', 'show');
             // SubCategories
             Route::resource('sub-categories', SubCategoriesController::class)->except('create', 'show');
             // Products
+            Route::view('products/settings', 'admin.products.settings')->name('products.settings');
             Route::resource('products', ProductsController::class);
             Route::patch('products/{product}/available', [ProductsController::class, 'available'])->name('products.available');
         });
@@ -54,7 +55,7 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
     Route::view('/privacy_policy', 'pages.privacy_policy')->name('privacy_policy');
     Route::view('/terms_conditions', 'pages.terms_conditions')->name('terms_conditions');
 
-    Route::get('/test', [HomeController::class, 'test'])->name('test');
+    //Route::get('/test', [HomeController::class, 'test'])->name('test');
 
     require __DIR__.'/auth.php';
 

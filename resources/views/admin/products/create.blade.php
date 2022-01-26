@@ -16,7 +16,7 @@
                         <h5 class="text-dark font-weight-bold my-1 mr-5">@lang('Products Management')</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
-                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm" style="margin-right: 15px">
                             <li class="breadcrumb-item text-muted">
                                 <a href="{{ route('admin.products.index') }}" class="text-muted">@lang('Products')</a>
                             </li>
@@ -25,10 +25,11 @@
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
+                        <div class="">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicColorsModal">@lang('All colors')</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicColorsModal">@lang('All sizes')</button>
+                        </div>
                     </div>
-                    {{-- <div class="text-right">
-                        <button class="btn btn-primary" onclick="updateDiv()"><i data-feather="refresh-cw"></i></button>
-                    </div> --}}
                     <!--end::Page Heading-->
                 </div>
 
@@ -36,7 +37,7 @@
                 <div class="card-body p-0">
                     <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
                         
-                        <div class="card-footer border font-weight-bolder col-xl-6 mr-2 col-xxl-5">
+                        <div class="card-footer border font-weight-bolder col-xl-12 mr-2 col-xxl-12">
                             <!--begin::Wizard Form-->
                             <form class="form" method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
                                 @csrf
@@ -243,9 +244,9 @@
                         </div>
                         
                         <!-- formulaire de couleur et taille -->
-                        <div class="col-xl-5 col-xxl-3">
+                        {{-- <div class="col-xl-5 col-xxl-3">
                             
-                            {{-- <div class="card-body">
+                            <div class="card-body">
                                 <p class="buttons">
                                     <a class="btn btn-primary" data-toggle="collapse" href="#colorsCollapse" role="button" aria-expanded="false" aria-controls="colorsCollapse">@lang('Colors')</a>
                                     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#sizesCollapse" aria-expanded="false" aria-controls="sizesCollapse">@lang('Sizes')</button>
@@ -281,7 +282,7 @@
                                     </div>
                                 </div>
                             </div>
-                         --}}
+                        
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row card-title">
@@ -309,7 +310,7 @@
                                     @livewire('products.create-size')
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!--end::Body-->
@@ -322,13 +323,4 @@
 
     {{-- SIZES MODAL --}}
     @include('admin.products.modals.sizes')
-
-    @push('scripts')
-        <script>
-            function updateDiv()
-            { 
-                $("#content").load(window.location.href + " #content" );
-            }
-        </script>
-    @endpush
 @endsection
