@@ -17,8 +17,8 @@ class CreateOffersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->date('to');
             $table->date('from');
+            $table->date('to');
             $table->float('discount');
             $table->timestamps();
             $table->softDeletes();

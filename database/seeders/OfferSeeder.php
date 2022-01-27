@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Products\Offer;
 use App\Models\Products\Product;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 class OfferSeeder extends Seeder
@@ -15,10 +16,10 @@ class OfferSeeder extends Seeder
      */
     public function run()
     {
-        $offers = Offer::factory()->count(5)->create();
+        $offers = Offer::factory()->count(3)->create();
 
         $offers->each(function($offer){
-            Product::get()->take(10)->each(function($product) use($offer){
+            Product::get()->take(Factory::create()->numberBetween(2, 5))->each(function($product) use($offer){
                 $offer->products()->attach($product);
             });
         });

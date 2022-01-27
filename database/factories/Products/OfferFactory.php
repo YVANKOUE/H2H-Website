@@ -27,8 +27,8 @@ class OfferFactory extends Factory
             'name' => $name,
             'slug' => Str::slug($name),
             'discount' => $this->faker->numberBetween(10, 75),
-            'from' => $this->faker->date(),
-            'to' => $this->faker->date('Y-m-d', '2025-12-25')
+            'from' => date_format($this->faker->dateTimeBetween('-5 days', '+3 days'), 'Y-m-d'),
+            'to' => now()->addDays($this->faker->numberBetween(-5, 20)),
         ];
     }
 }

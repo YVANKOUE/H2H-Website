@@ -85,8 +85,7 @@
                                     <label class="col-sm-2 col-form-label">@lang('Discount')<sup class="text-danger">*</sup></label>
                                     <div class="col-lg-10 col-xl-10 col-sm-10">
                                         <div class="input-group input-group-solid input-group-lg">
-                                            <input type="number" class="form-control form-control-solid @error('discount') is-invalid @enderror" name="discount" 
-                                                id="discount" min="1" placeholder="...%" value="{{ old('discount') }}" required/>
+                                            <input type="number" class="form-control form-control-solid @error('discount') is-invalid @enderror" name="discount" id="discount" min="1" max="100" placeholder="...%" value="{{ old('discount') }}" required/>
                                         </div>
                                         @error('discount')
                                             <span class="form-text text-muted" role="alert"><strong class="text-danger">{{ $message }}</strong></span>

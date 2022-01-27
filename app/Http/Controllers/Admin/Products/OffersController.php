@@ -7,6 +7,7 @@ use App\Http\Requests\CreateOfferRequest;
 use App\Http\Requests\UpdateOfferRequest;
 use App\Models\Products\Offer;
 use App\Models\Products\Product;
+use DateTime;
 use Illuminate\Database\Eloquent\Builder;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -44,6 +45,11 @@ class OffersController extends Controller
      */
     public function store(CreateOfferRequest $createOfferRequest)
     {
+        if (request()->from < Offer::all()->max('to')) {
+            Alert::toast(trans('There is already an offer for this period.'), 'error');
+            return back()->withInput();
+        }
+
         $offer = Offer::create($createOfferRequest->validated());
         foreach ($createOfferRequest->products as $product) {
             $offer->products()->attach($product);
@@ -61,10 +67,9 @@ class OffersController extends Controller
      */
     public function edit(Offer $offer)
     {
-
         return view('admin.offers.edit', [
             'offer' => $offer,
-            'products' => Product::all(),
+            'products' => Product::whereNotIn('id', Product::notInOffer()->get()->pluck('id')->toArray())->get(),
         ]);
     }
 

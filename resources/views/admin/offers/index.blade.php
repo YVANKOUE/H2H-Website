@@ -28,7 +28,7 @@
                                             <th>@lang('Name')</th>
                                             <th>@lang('Begins at')</th>
                                             <th>@lang('Ends at')</th>
-                                            <th>@lang('Discount')</th>
+                                            <th>@lang('Discount') (%)</th>
                                             <th>@lang('Products')</th>
                                             <th>@lang('Action')</th>
                                         </tr>
