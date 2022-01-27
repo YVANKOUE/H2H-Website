@@ -7,7 +7,7 @@ use App\Http\Requests\CreateOfferRequest;
 use App\Http\Requests\UpdateOfferRequest;
 use App\Models\Products\Offer;
 use App\Models\Products\Product;
-use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class OffersController extends Controller
@@ -21,7 +21,6 @@ class OffersController extends Controller
     {
         return view('admin.offers.index', [
             'offers' => Offer::orderByDesc('created_at')->get(),
-            'products' => Product::all(),
         ]);
     }
 
@@ -33,7 +32,7 @@ class OffersController extends Controller
     public function create()
     {
         return view('admin.offers.create', [
-            'products' => Product::all()
+            'products' => Product::whereNotIn('id', Product::notInOffer()->get()->pluck('id')->toArray())->get(),
         ]);
     }
 
@@ -62,7 +61,7 @@ class OffersController extends Controller
      */
     public function edit(Offer $offer)
     {
-        $products = '';
+
         return view('admin.offers.edit', [
             'offer' => $offer,
             'products' => Product::all(),

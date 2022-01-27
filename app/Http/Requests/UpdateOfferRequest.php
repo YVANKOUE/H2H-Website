@@ -24,17 +24,12 @@ class UpdateOfferRequest extends FormRequest
      */
     public function rules()
     {
-        $offers = Offer::whereBetween('to', [request()->from, now()])->get();
-        $products_unavailable = collect();
-        $offers->each(function($key, $item) use($products_unavailable){
-            $products_unavailable->push($item->id);
-        });
         return [
             'name' => 'required|max:55|unique:offers,name,' . $this->offer->id,
             'from' => 'required|date_format:Y-m-d|after_or_equal:' . now(),
             'to' => 'required|date_format:Y-m-d|after:' . request()->from,
             'discount' => 'required|integer',
-            'products.*' => 'required|exists:products,id|not_in:' . implode(',', $products_unavailable->isEmpty() ? [] : $products_unavailable->toArray())
+            'products.*' => 'required|exists:products,id|not_in:' . products_in_offer(request()->from)
         ];
     }
 }

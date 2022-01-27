@@ -61,4 +61,18 @@ class Product extends Model
     {
         return $this->belongsToMany(Offer::class);
     }
+
+    // LOCAL SCOPES
+    /**
+     * Scope to only include products with not offer.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNotInOffer($query)
+    {
+        return $query->whereHas('offers', function($query){
+            $query->where('to', '<', today());
+        });
+    }
 }

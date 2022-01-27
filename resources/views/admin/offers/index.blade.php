@@ -42,7 +42,7 @@
                                                 <td>{{ $offer->to }}</td>
                                                 <td>{{ $offer->discount }}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ implode(', ', $offer->products->pluck('name')->toArray()) }}" title="{{  $offer->products->count() }} @lang('Products')" data-trigger="focus">{{ $offer->products->count() }}</button>
+                                                    <button type="button" class="btn btn-{{ $offer->to > today() ? 'primary' : 'secondary' }}" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ implode(', ', $offer->products->pluck('name')->toArray()) }}" title="{{  $offer->products->count() }} @lang('Products')" data-trigger="focus">{{ $offer->products->count() }}</button>
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('admin.offers.edit', $offer->slug) }}" class="btn btn-sm btn-primary btn-icon mr-2" title="@lang('Edit')">

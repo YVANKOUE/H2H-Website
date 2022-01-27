@@ -31,7 +31,7 @@
                 <!--begin::Body-->
                 <div class="card-body p-0">
                     <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
-                        <div class="col-xl-8 col-xxl-7">
+                        <div class="col-xl-12 col-xxl-12">
                             <!--begin::Wizard Form-->
                             <form class="form" method="POST"
                                 action="{{ route('admin.offers.update', ['offer' => $offer]) }}">
@@ -103,7 +103,7 @@
                                         <div class="input-group input-group-solid input-group-lg">
                                             <select multiple="multiple" class="form-control select2 @error('products.*') is-invalid @enderror" name="products[]" id="products" required>
                                                 @foreach($products as $product)
-                                                    <option value="{{ $product->id }}" 
+                                                    <option value="{{ $product->id }}"
                                                         @if (old('products'))
                                                             @if (in_array($product->id, old('products'))) selected @endif
                                                         @elseif (in_array($product->id, $offer->products->pluck('id')->toArray())) selected @endif>{{ $product->name }}
@@ -124,10 +124,6 @@
                                 <!--end::Wizard Actions-->
                             </form>
                             <!--end::Wizard Form-->
-                        </div>
-
-                        <div class="col-xl-4 col-xxl-5">
-                            
                         </div>
                     </div>
                 </div>
