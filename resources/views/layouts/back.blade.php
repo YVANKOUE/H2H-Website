@@ -25,10 +25,13 @@
         <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
 
         <!-- Custom style CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
         <link rel='shortcut icon' type='image/x-icon' href='{{ asset('assets/img/logo01.png') }}' />
+        <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/bundles/select2/dist/css/select2.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/bundles/bootstrap-social/bootstrap-social.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/bundles/bootstrap-daterangepicker/daterangepicker.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/bundles/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')}}">
 
         @yield('Page Vendors Styles')
         @livewireStyles
@@ -55,6 +58,7 @@
 
         <!-- General JS Scripts -->
         <script src="{{ asset('assets/js/app.min.js') }}"></script>
+        <script src="{{ asset('assets/js/show_password.js') }}"></script>
 
         <!-- JS Libraies -->
         <script src="{{ asset('assets/bundles/apexcharts/apexcharts.min.js') }}"></script>
@@ -75,6 +79,9 @@
         <script src="{{ asset('assets/bundles/datatables/export-tables/vfs_fonts.js') }}"></script> 
         <script src="{{ asset('assets/bundles/datatables/export-tables/buttons.print.min.js') }}"></script>
         <script src="{{ asset('assets/js/page/multiple-upload.js')}}"></script>
+        <script src="{{ asset('assets/bundles/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}"></script>
+        <script src="{{ asset('assets/bundles/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+        <script src="{{ asset('assets/bundles/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')}}"></script>
 
         <!-- Template JS File -->
         <script src="{{ asset('assets/js/scripts.js') }}"></script>

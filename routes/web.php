@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\{RolesController, UsersController, ProfileController, PermissionsController};
-use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsController, SubCategoriesController};
+use App\Http\Controllers\Admin\Products\{CategoriesController, OffersController, ProductsController, SubCategoriesController};
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth', 'can:users_manage'])->name('dashboard');
-
+    
     Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
         
         //route du profil
@@ -38,14 +38,18 @@ use App\Http\Controllers\Admin\Products\{CategoriesController, ProductsControlle
             Route::resource('permissions', PermissionsController::class);
             //route des roles
             Route::resource('roles', RolesController::class);
-
+            
             // Categories
             Route::resource('categories', CategoriesController::class)->except('create', 'show');
             // SubCategories
             Route::resource('sub-categories', SubCategoriesController::class)->except('create', 'show');
             // Products
+            Route::view('products/settings', 'admin.products.settings')->name('products.settings');
             Route::resource('products', ProductsController::class);
             Route::patch('products/{product}/available', [ProductsController::class, 'available'])->name('products.available');
+
+            // Offers
+            Route::resource('offers', OffersController::class)->except('show');
         });
     });
     Route::get('/shop', [HomeController::class, 'shop'])->name('shop');

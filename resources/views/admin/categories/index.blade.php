@@ -16,11 +16,11 @@
                         </div>
                     @endif
                     <div class="card-header">
-                        <div class="justify-content-start">
+                        <div class="col-md-9">
                             <h4>@lang('Categories list')</h4>
                         </div>
-                        <div class="justify-content-end">
-                            <button type="button" class="btn btn-{{ $errors->any() ? 'danger' : 'primary' }}" data-toggle="modal" data-target="#addCategoryModal"><span class="fas fa-plus"></span></button>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-{{ $errors->any() ? 'danger' : 'primary' }}" data-toggle="modal" data-target="#addCategoryModal">@lang('New category')</span></button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -40,7 +40,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $category->name }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $category->description }}">...</button>
+                                                <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $category->description }}" data-trigger="focus">...</button>
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.categories.edit', $category->slug) }}"
@@ -53,8 +53,7 @@
                                                     @method("DELETE")
                                                     @csrf
 
-                                                    <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')"
-                                                        onclick="return confirm('@lang('Are you sure you want to delete :attribute?', ['attribute'=>$category->name])');">
+                                                    <button class="btn btn-sm btn-danger btn-icon delete" title="@lang('Delete record')">
                                                         <span class="fas fa-trash"></span>
                                                     </button>
                                                 </form>
@@ -71,17 +70,25 @@
     </div>
 
     @push('scripts')
-        
-        <script>
-            $(function () {
-                $('[data-toggle="popover"]').popover()
-            });
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
-            $(function() {
-                setTimeout(() => {
-                    $('div.alert').remove();
-                }, 6000);
-            }); 
+        <script type="text/javascript">
+            $('.delete').click(function(event) {
+                var form =  $(this).closest("form");
+                event.preventDefault();
+                swal({
+                    title: "{{ trans('Are you sure you want to delete this record ?') }}",
+                    text: "{{ trans('If you delete this, it will also delete all the related records (subcategories and products).') }}",
+                    icon: "warning",
+                    buttons: ["{{ trans('Cancel') }}", "{{ trans('Confirm') }}"],
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                    form.submit();
+                    }
+                });
+            });
         </script>
     @endpush
 

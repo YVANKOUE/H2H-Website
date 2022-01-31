@@ -19,7 +19,7 @@
           </li>
         @endcan
                     
-        <li class="menu-header">@lang('Pages')</li>
+        <li class="menu-header">@lang('Users and access')</li>
 
         @can('users_manage')
           <li class="dropdown @if(Str::startsWith($route, 'admin.users'))active @endif">
@@ -50,22 +50,39 @@
           </li>
 
           <li class="menu-header">@lang('Products management')</li>
-          
-          <!-- lien des catégories -->
-          <li class="dropdown @if(Str::startsWith($route, 'admin.categories'))active @endif">
-            <a href="{{ route('admin.categories.index') }}" class="nav-link"><i data-feather="folder"></i><span>@lang('Categories')</span></a>
+
+          <li class="dropdown @if(Str::startsWith($route, 'admin.categories') || Str::startsWith($route, 'admin.sub-categories') || Str::startsWith($route, 'admin.products.settings'))active @endif">
+            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="settings"></i><span>@lang('Settings')</span></a>
+            <ul class="dropdown-menu">
+              <!-- lien des catégories -->
+              <li class="dropdown @if(Str::startsWith($route, 'admin.categories'))active @endif">
+                <a href="{{ route('admin.categories.index') }}" class="nav-link"><i data-feather="box"></i><span>@lang('Categories')</span></a>
+              </li>
+
+              {{-- Subcategories --}}
+              <li class="dropdown @if(Str::startsWith($route, 'admin.sub-categories'))active @endif">
+                <a href="{{ route('admin.sub-categories.index') }}" class="nav-link"><i data-feather="copy"></i><span>@lang('Subcategories')</span></a>
+              </li>
+              
+              {{-- Colors and sizes --}}
+              <li class="dropdown @if(Str::startsWith($route, 'admin.products.settings'))active @endif">
+                <a href="{{ route('admin.products.settings') }}" class="nav-link"><i data-feather="aperture"></i><span>@lang('Colors and sizes')</span></a>
+              </li>
+            </ul>
           </li>
 
-          <li class="dropdown @if(Str::startsWith($route, 'admin.sub-categories'))active @endif">
-            <a href="{{ route('admin.sub-categories.index') }}" class="nav-link"><i data-feather="folder"></i><span>@lang('Subcategories')</span></a>
-          </li>
-
-          <li class="dropdown @if(Str::startsWith($route, 'admin.products'))active @endif">
-            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="list"></i><span>@lang('Products')</span></a>
+          {{-- Products Management --}}
+          <li class="dropdown @if(Str::startsWith($route, 'admin.products.index'))active @endif">
+            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="shopping-bag"></i><span>@lang('Products')</span></a>
             <ul class="dropdown-menu">
               <li><a href="{{ route('admin.products.index') }}">@lang('List')</a></li>
               <li><a href="{{ route('admin.products.create') }}">@lang('Add')</a></li>
             </ul>
+          </li>
+
+          {{-- Offers Management --}}
+          <li class="dropdown @if(Str::startsWith($route, 'admin.offers'))active @endif">
+            <a href="{{ route('admin.offers.index') }}" class="nav-link"><i data-feather="aperture"></i><span>@lang('Offers')</span></a>
           </li>
         @endcan
 

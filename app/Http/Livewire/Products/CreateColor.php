@@ -25,6 +25,8 @@ class CreateColor extends Component
 
     public function render()
     {
-        return view('livewire.products.create-color');
+        return view('livewire.products.create-color', [
+            'colors' => Color::orderByDesc('created_at')->get(),
+        ]);
     }
 }

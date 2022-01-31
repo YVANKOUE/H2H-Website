@@ -21,6 +21,8 @@ class CreateSize extends Component
 
     public function render()
     {
-        return view('livewire.products.create-size');
+        return view('livewire.products.create-size', [
+            'sizes' => Size::orderByDesc('created_at')->get(),
+        ]);
     }
 }

@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <div class="card-body">
-                    @if (count($sizes) > 0)
+                    @if ($sizes->count() > 0)
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -31,6 +31,12 @@
                         <p class="text-center text-info">@lang('No size yet.')</p>
                     @endif
                 </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
+                @if (Route::currentRouteName() !== 'admin.products.settings')
+                    <a href="{{ route('admin.products.settings') }}" type="button" class="btn btn-primary text-light">@lang('New size')</a>
+                @endif
             </div>
         </div>
     </div>
