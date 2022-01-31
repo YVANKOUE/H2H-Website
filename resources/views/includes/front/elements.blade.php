@@ -88,33 +88,47 @@
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <div class="modal-title p-3">
-                    <h5 class="m-0 text-white">Sign in to your account!</h5>
-                    <p class="m-0 text-white">Nice to see you! Please log in with your account.</p>
+                    <h5 class="m-0 text-white"> @lang('Sign in to your account!') </h5>
+                    <p class="m-0 text-white">@lang('Nice to see you! Please log in with your account.')</p>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="w-100 p-3">
                     <!-- Form START -->
-                    <form>
+                    <form method="POST" action="{{ route('login') }}" novalidate="" >
+                        @method('post')
+                        @csrf
                         <div class="mb-3">
-                            <label class="form-label" for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail">
+                            <label class="form-label" for="exampleInputEmail1">@lang('Email address')<span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email"  required autofocus placeholder="@lang('E-mail')">
+                            <div class="invalid-feedback">
+                                @lang('Please fill in your email')
+                              </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">
+                            <label class="form-label" for="exampleInputPassword1">@lang('Password')</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" required placeholder="*********">
                         </div>
                         <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">keep me signed in</label>
+                            <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">@lang('Remember Me')</label>
+                            <div class="invalid-feedback">
+                                @lang('Please fill in your password')
+                              </div>
                         </div>
                         <div class="row align-items-center">
                             <div class="col-sm-4">
-                                <button type="submit" class="btn btn-dark">Login</button>
+                                <button type="submit" class="btn btn-dark">@lang('Log in')</button>
                             </div>
                             <div class="col-sm-8 text-sm-end">
-                                <span class="text-muted">Don't have an account? <a href="sign-up.html">Signup here</a></span>
+                                <span class="text-muted">
+                                    @if (Route::has('password.request'))
+                                        <a href="{{ route('password.request') }}" data-bs-toggle="modal" data-bs-target="#topbarlogin"> 
+                                            @lang('Forgot your password?')
+                                        </a>
+                                    @endif 
+                                </span>
                             </div>
                         </div>
                     </form>

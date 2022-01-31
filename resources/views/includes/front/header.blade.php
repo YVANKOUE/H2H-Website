@@ -164,7 +164,7 @@
                             <i class="bi bi-person-circle"> </i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end mt-2 shadow" aria-labelledby="dropdown_myaccount">
-                            <a class="dropdown-item" href=" {{route('login')}} ">@lang('Log in')</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#topbarlogin">@lang('Log in')</a>
                             <a class="dropdown-item" href="#">@lang('My account')</a>
                         </div>
                     </div>

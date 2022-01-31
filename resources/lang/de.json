@@ -33,7 +33,7 @@
     "Edit :resource": "Editer :resource",
     "Email Password Reset Link": "Lien de réinitialisation du mot de passe",
     "Forget a password": "Mot de passe oublié",
-    "Forgot your password?": "Mot de passe oublié?",
+    "Forgot your password?": "Haben Sie Ihr Passwort vergessen?",
     "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "Mot de passe oublié ? Pas de soucis. Veuillez nous indiquer votre adresse email et nous vous enverrons un lien de réinitialisation du mot de passe.",
     "I agree with the terms and conditions": "J'accepte les termes et conditions d'utilisation", 
     "Last Name": "Nom de famille",
@@ -48,7 +48,7 @@
     "Regards": "Cordialement",
     "Regenerate Recovery Codes": "Régénérer les codes de récupération",
     "Reload": "Recharger",
-    "Remember Me": "Se souvenir de moi",
+    "Remember Me": "Erinnern Sie sich an mich",
     "Remove": "Supprimer",
     "Remove Photo": "Supprimer l'image",
     "Remove Team Member": "Supprimer le membre d'équipe",
@@ -280,7 +280,9 @@
     "Edit Profile": "Modifier le profil",
     "Email Address": "E-Mail Adresse",
     "Are you sure you want to delete this user?": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
-
+    "Sign in to your account!":"Melden Sie sich bei Ihrem Konto an",
+    "Nice to see you! Please log in with your account.":"Schön, Sie zu sehen! Bitte melden Sie sich mit Ihrem Konto an.",
+    "Have an account?":"Haben Sie ein Konto?",
     "":""
     
 }
